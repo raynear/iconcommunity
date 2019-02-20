@@ -88,7 +88,7 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_ROOT = "/home/iconcommunity/staticall/"
-STATIC_URL = '/static/'
+STATIC_URL = '/staticall/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
