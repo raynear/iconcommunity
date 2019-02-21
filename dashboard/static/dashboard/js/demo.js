@@ -1002,6 +1002,7 @@ demo = {
       }]
     };
 
+
     var myChart = new Chart(ctxGreen, {
       type: 'line',
       data: data,
@@ -1009,7 +1010,7 @@ demo = {
 
     });
 
-
+    /*
 
     var chart_labels = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
     var chart_data = [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100];
@@ -1068,6 +1069,7 @@ demo = {
       data.labels = chart_labels;
       myChartData.update();
     });
+    */
 
 
     var ctx = document.getElementById("CountryChart").getContext("2d");

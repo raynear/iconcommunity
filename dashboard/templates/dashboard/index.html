@@ -11,131 +11,6 @@
 {% block content %}
 
   <div class="row">
-    <!-- Market Chart -->
-    <div class="col-12">
-      <div class="card card-chart">
-        <!-- Market Chart Header -->
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-6 text-left">
-              <h2>ICX Chart</h2>
-              <!--<h2 class="card-title">ICX Chart</h2>-->
-            </div>
-            <div class="col-sm-6 duration">
-              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                  <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">Day</span>
-                  <span class="d-block d-sm-none day on" onclick="toggleDuration('DAY');">24H</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="1">
-                  <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">Week</span>
-                  <span class="d-block d-sm-none week" onclick="toggleDuration('WEEK');">7D</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="2">
-                  <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">Month</span>
-                  <span class="d-block d-sm-none month" onclick="toggleDuration('MONTH');">30D</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Market Chart Body -->
-        <div class="card-body">
-						<div class="chart">
-						<canvas class="chartCanvas" id="chartCanvas"></canvas>
-						</div>
-        </div>
-      </div>
-    </div>
-    <!-- End Market Chart -->
-  </div>
-
-
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
-        <div class="card-header">
-          <h2 class="card-title">Dapps Market Cap</h2>
-        </div>
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-typeI">
-              <thead class="text-primary">
-              <tr>
-                <th class="text-center">#</th>
-                <th>Token</th>
-                <th>Price</th>
-                <th>% Change</th>
-                <th>Volume (24h)</th>
-                <th>Market Cap</th>
-              </tr>
-              </thead>
-              <tbody>
-
-              <tr>
-                <td class="text-center">
-                  <div class="photo">
-                    <img src="{% static 'dashboard/img/ac3.jpg' %}" alt="photo">
-                  </div>
-                </td>
-                <td>AC3 (AC3)<p></p></td>
-                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
-                <td>+5%</td>
-                <td>500,000 USD</td>
-                <td>18,000,000 USD</td>
-              </tr>
-
-              <tr>
-                <td class="text-center">
-                  <div class="photo">
-                    <img src="{% static 'dashboard/img/mecacoin.png' %}" alt="photo">
-                  </div>
-                </td>
-                <td>MECA Coin (MCA)<p></p></td>
-                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
-                <td>+5%</td>
-                <td>500,000 USD</td>
-                <td>18,000,000 USD</td>
-              </tr>
-
-              <tr>
-                <td class="text-center">
-                  <div class="photo">
-                    <img src="{% static 'dashboard/img/zensports.jpg' %}" alt="photo">
-                  </div>
-                </td>
-                <td>SportToken (SPORT)<p></p></td>
-                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
-                <td>+5%</td>
-                <td>500,000 USD</td>
-                <td>18,000,000 USD</td>
-              </tr>
-
-              <tr>
-                <td class="text-center">
-                  <div class="photo">
-                    <img src="{% static 'dashboard/img/webloc.jpg' %}" alt="photo">
-                  </div>
-                </td>
-                <td>weBloc (WOK)<p></p></td>
-                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
-                <td>+5%</td>
-                <td>500,000 USD</td>
-                <td>18,000,000 USD</td>
-              </tr>
-
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row">
 
     <!-- Block Producer Ranking -->
     <div class="col-12">
@@ -156,7 +31,7 @@
             </div>
           </div>
           -->
-          <h2 class="card-title">Block Producer Ranking</h2>
+          <h2 class="card-title">P-Rep Rankings</h2>
         </div>
         <div class="card-body">
           <div class="table-responsive">
@@ -173,6 +48,76 @@
               </tr>
               </thead>
               <tbody>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/iconation.png' %}" alt="photo">
+                  </div>
+                </td>
+                <td>ICONation</td>
+                <td>6,168,567</td>
+                <td>5,667</td>
+                <td class="text-center">
+                  <div class="progress-container progress-sm">
+                    <div class="progress">
+                      <span class="progress-value">60%</span>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                           aria-valuemax="100" style="width: 60%;"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-right">7,288 ICX
+                </td>
+                <td class="text-right">Paris</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/noris.png' %}" alt="photo">
+                  </div>
+                </td>
+                <td>Noris</td>
+                <td>6,168,567</td>
+                <td>5,667</td>
+                <td class="text-center">
+                  <div class="progress-container progress-sm">
+                    <div class="progress">
+                      <span class="progress-value">60%</span>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                           aria-valuemax="100" style="width: 60%;"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-right">7,288 ICX
+                </td>
+                <td class="text-right">San Francisco</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/draiconball.png' %}" alt="photo">
+                  </div>
+                </td>
+                <td>Draicon Ball</td>
+                <td>6,168,567</td>
+                <td>5,667</td>
+                <td class="text-center">
+                  <div class="progress-container progress-sm">
+                    <div class="progress">
+                      <span class="progress-value">60%</span>
+                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
+                           aria-valuemax="100" style="width: 60%;"></div>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-right">7,288 ICX
+                </td>
+                <td class="text-right">Seoul</td>
+              </tr>
+
               <tr>
                 <td class="text-center">
                   <div class="photo">
@@ -351,7 +296,7 @@
       </div>
     </div>
 
-    <!-- Additional Charts
+
     <div class="col-lg-4">
       <div class="card card-chart">
         <div class="card-header">
@@ -391,12 +336,11 @@
         </div>
       </div>
     </div>
-    End Additional Charts -->
 
     <div class="col-lg-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title">Global Sales by Top Locations</h4>
+          <h2>P-Rep Locations</h2>
           <p class="card-category">All products that were shipped</p>
         </div>
         <div class="card-body">
@@ -501,6 +445,132 @@
       </div>
     </div>
   </div>
+
+  <!-- ICX Market Chart -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-chart">
+        <!-- Market Chart Header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <h2>ICX Chart</h2>
+              <!--<h2 class="card-title">ICX Chart</h2>-->
+            </div>
+            <div class="col-sm-6 duration">
+              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">Day</span>
+                  <span class="d-block d-sm-none day on" onclick="toggleDuration('DAY');">24H</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">Week</span>
+                  <span class="d-block d-sm-none week" onclick="toggleDuration('WEEK');">7D</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">Month</span>
+                  <span class="d-block d-sm-none month" onclick="toggleDuration('MONTH');">30D</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Market Chart Body -->
+        <div class="card-body">
+						<div class="chart">
+						<canvas class="chartCanvas" id="chartCanvas"></canvas>
+						</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAPPs Market Cap -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h2 class="card-title">Dapps Market Cap</h2>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-typeI">
+              <thead class="text-primary">
+              <tr>
+                <th class="text-center">#</th>
+                <th>Token</th>
+                <th>Price</th>
+                <th>% Change</th>
+                <th>Volume (24h)</th>
+                <th>Market Cap</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/ac3.jpg' %}" alt="photo">
+                  </div>
+                </td>
+                <td>AC3 (AC3)<p></p></td>
+                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
+                <td>+5%</td>
+                <td>500,000 USD</td>
+                <td>18,000,000 USD</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/mecacoin.png' %}" alt="photo">
+                  </div>
+                </td>
+                <td>MECA Coin (MCA)<p></p></td>
+                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
+                <td>+5%</td>
+                <td>500,000 USD</td>
+                <td>18,000,000 USD</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/zensports.jpg' %}" alt="photo">
+                  </div>
+                </td>
+                <td>SportToken (SPORT)<p></p></td>
+                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
+                <td>+5%</td>
+                <td>500,000 USD</td>
+                <td>18,000,000 USD</td>
+              </tr>
+
+              <tr>
+                <td class="text-center">
+                  <div class="photo">
+                    <img src="{% static 'dashboard/img/webloc.jpg' %}" alt="photo">
+                  </div>
+                </td>
+                <td>weBloc (WOK)<p></p></td>
+                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
+                <td>+5%</td>
+                <td>500,000 USD</td>
+                <td>18,000,000 USD</td>
+              </tr>
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 {% endblock %}
 
 {% block extra_js %}
@@ -509,11 +579,14 @@
   <script src="{% static 'dashboard/js/chart.bundle.min.js' %}"></script>
   <script src="{% static 'dashboard/js/coininfo.js' %}"></script>
 
+  <script src="{% static 'dashboard/js/jquery-jvectormap.js' %}"></script>
+
   <script src="{% static 'dashboard/js/demo.js' %}"></script>
 
   <script>
     $(document).ready(function() {
-      //demo.initDashboardPageCharts();
+        demo.initDashboardPageCharts();
+        demo.initVectorMap();
     });
   </script>
 

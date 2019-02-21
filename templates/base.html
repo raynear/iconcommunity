@@ -11,13 +11,14 @@
   <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,600,700,800" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet" />
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
   <!-- CSS -->
   <link href="{% static 'css/nucleo-icons.css' %}" rel="stylesheet" />
   <link href="{% static 'css/base.css' %}" rel="stylesheet" />
   {% block extra_head %}{% endblock %}
+
 </head>
 
 <body class="white-content"><!-- sidebar-mini -->
@@ -31,11 +32,6 @@
     <div class="sidebar">
       <div class="sidebar-wrapper">
         <div class="logo">
-          <!--
-          <a href="javascript:void(0)" class="simple-text logo-mini">
-            IC
-          </a>
-          -->
           <a href="javascript:void(0)" class="simple-text logo-mini"><img src="{% static 'logo/ic.png' %}" width="26" height="26" style="margin-top: 0px; margin-left: 4px;"></a>
           <a href="javascript:void(0)" class="simple-text logo-normal">
             icon.community
@@ -85,19 +81,19 @@
         <ul class="nav">
           <li class="active">
             <a href="/dashboard/">
-              <i class="tim-icons icon-chart-pie-36"></i>
+              <i class="tim-icons"><img src="{% static 'logo/pie.png' %}" width="22" height="22" style="margin-top: -10px; margin-left: -4px;"></i>
               <p>Dashboard</p>
             </a>
           </li>
           <li>
             <a href="https://icon.community/iconsensus/" target="_blank">
-              <i class="tim-icons"><img src="{% static 'logo/iconsensus.png' %}" width="26" height="26" style="margin-top: -10px; margin-left: -4px;"></i>
+              <i class="tim-icons"><img src="{% static 'logo/iconsensus.png' %}" width="26" height="26" style="margin-top: -10px; margin-left: -6px;"></i>
               <p>ICONSENSUS</p>
             </a>
           </li>
           <li>
             <a href="https://forum.icon.community/" target="_blank">
-              <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -4px;"></i>
+              <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -6px;"></i>
               <p>Forum</p>
             </a>
           </li>
@@ -131,89 +127,52 @@
             <span class="navbar-toggler-bar navbar-kebab"></span>
           </button>
 
-
-          <div class="collapse navbar-collapse" id="navigation">
-            <div class="navbar-nav ml-auto">
-              EN KO
-            </div>
-            <!--
+          <!--
+          <div class="navbar-collapse collapse show" id="navigation" style="">
             <ul class="navbar-nav ml-auto">
-              <li class="search-bar input-group">
-                <button class="btn btn-link" id="search-button" data-toggle="modal" data-target="#searchModal"><i class="tim-icons icon-zoom-split"></i>
-                  <span class="d-lg-none d-md-block">Search</span>
-                </button>
-              </li>
-              <li class="dropdown nav-item">
-                <a href="javascript:void(0)" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="notification d-none d-lg-block d-xl-block"></div>
-                  <i class="tim-icons icon-sound-wave"></i>
-                  <p class="d-lg-none">
-                    Notifications
-                  </p>
+              <li class="nav-item ml-auto">
+                <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                  <div class="d-none d-lg-block d-xl-block"></div>
+                    <a class="nav-lang active" href="#">EN</a>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-right dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="#" class="nav-item dropdown-item">Mike John responded to your email</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">You have 5 more tasks</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Your friend Michael is in town</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another notification</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Another one</a>
-                  </li>
-                </ul>
               </li>
-              <li class="dropdown nav-item">
-                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                  <div class="photo">
-                    <img src="../assets/img/mike.jpg" alt="Profile Photo">
-                  </div>
-                  <b class="caret d-none d-lg-block d-xl-block"></b>
-                  <p class="d-lg-none">
-                    Log out
-                  </p>
+              <li class="nav-item ml-auto">
+                <a href="javascript:void(0)" class="nav-link" data-toggle="dropdown" aria-expanded="false">
+                  <div class="d-none d-lg-block d-xl-block"></div>
+                    <a class="nav-lang" href="#">KR</a>
                 </a>
-                <ul class="dropdown-menu dropdown-navbar">
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Profile</a>
-                  </li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Settings</a>
-                  </li>
-                  <li class="dropdown-divider"></li>
-                  <li class="nav-link">
-                    <a href="javascript:void(0)" class="nav-item dropdown-item">Log out</a>
-                  </li>
-                </ul>
               </li>
               <li class="separator d-lg-none"></li>
             </ul>
-            -->
+          </div>
+          -->
+
+          <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+
+              <li class="nav-item ml-auto">
+                <a href="javascript:void(0)" class="nav-link">
+                  <div class="d-none d-lg-block d-xl-block"></div>
+                  <a class="nav-lang active" href="#">EN</a>
+                </a>
+              </li>
+
+              <li class="separator d-lg-none"></li>
+
+              <li class="nav-item ml-auto">
+                <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
+                  <div class="d-none d-lg-block d-xl-block"></div>
+                    <a class="nav-lang" href="#">KR</a>
+                </a>
+              </li>
+
+            </ul>
           </div>
 
 
         </div>
       </nav>
-      <!--
-      <div class="modal modal-search fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="searchModal" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="SEARCH">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <i class="tim-icons icon-simple-remove"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      -->
+
       <!-- End Navbar -->
       <div class="content">
         {% block content %}
@@ -265,13 +224,10 @@
         $navbar = $('.navbar');
         $main_panel = $('.main-panel');
         $full_page = $('.full-page');
-
         $sidebar_responsive = $('body > .navbar-collapse');
         sidebar_mini_active = false;
         white_color = true;
-
         window_width = $(window).width();
-
 
         $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function() {
           var $btn = $(this);
@@ -318,8 +274,6 @@
 
             white_color = true;
           }
-
-
         });
 
         $('.light-badge').click(function() {
@@ -329,9 +283,16 @@
         $('.dark-badge').click(function() {
           $('body').removeClass('white-content');
         });
+
+        // toggle language
+        $('.nav-lang').click(function() {
+          $('.nav-lang.active').not(this).removeClass('active');
+          $(this).toggleClass('active');
+        })
       });
     });
   </script>
+
 
 </body>
 
