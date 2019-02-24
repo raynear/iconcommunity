@@ -10,6 +10,117 @@
 
 {% block content %}
 
+
+
+
+  <!-- ICX Price -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-chart">
+        <!-- Market Chart Header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <h2>ICX Price</h2>
+              <!--<h2 class="card-title">ICX Chart</h2>-->
+            </div>
+            <div class="col-sm-6 duration">
+              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">BTC</span>
+                  <span class="d-block d-sm-none day on" onclick="toggleCurrency('BTC');">BTC</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">ETH</span>
+                  <span class="d-block d-sm-none week" onclick="toggleCurrency('ETH');">ETH</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">USD</span>
+                  <span class="d-block d-sm-none month" onclick="toggleCurrency('USD');">USD</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Body -->
+        <div class="card-body">
+					<div class="part">
+						<p class="icx-group">
+							<span class="icx">1<em>ICX</em></span> <span class="same">=</span>
+							<span class="eth">0<em>BTC</em></span>
+						</p>
+						<!-- <p class="price">
+							0<em>KRW</em>
+						</p> -->
+						<ul class="content half market-vol-wrap">
+							<li class="left">
+								<p class="subTitle">Marketcap</p>
+								<p>
+									<em>B</em>0<em>K</em>
+								</p>
+							</li>
+							<li class="right">
+								<p class="subTitle">Volume</p>
+								<p>
+									<em>B</em>0
+								</p>
+							</li>
+						</ul>
+					</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ICX Market Chart -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-chart">
+        <!-- Market Chart Header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <h2>ICX Chart</h2>
+              <!--<h2 class="card-title">ICX Chart</h2>-->
+            </div>
+            <div class="col-sm-6 duration">
+              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">Day</span>
+                  <span class="d-block d-sm-none day on" onclick="toggleDuration('DAY');">24H</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">Week</span>
+                  <span class="d-block d-sm-none week" onclick="toggleDuration('WEEK');">7D</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">Month</span>
+                  <span class="d-block d-sm-none month" onclick="toggleDuration('MONTH');">30D</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Market Chart Body -->
+        <div class="card-body">
+						<div class="chart">
+						<canvas class="chartCanvas" id="chartCanvas"></canvas>
+						</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ranking -->
   <div class="row">
 
     <!-- Block Producer Ranking -->
@@ -35,45 +146,39 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table">
+            <table class="table ranking">
               <thead class="text-primary">
               <tr>
-                <th class="text-center">Rank</th>
+                <th>Rank</th>
+                <th>Logo</th>
                 <th>Block Producer</th>
                 <th>ICX Votes</th>
                 <th>Voters</th>
                 <th>Percent</th>
-                <th class="text-right">Daily Reward</th>
-                <th class="text-right">Location</th>
+                <th>Daily Reward</th>
+                <th>Location</th>
               </tr>
               </thead>
               <tbody>
 
               <tr>
-                <td class="text-center">
+                <td>1</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/iconation.png' %}" alt="photo">
                   </div>
                 </td>
                 <td>ICONation</td>
                 <td>6,168,567</td>
-                <td>5,667</td>
-                <td class="text-center">
-                  <div class="progress-container progress-sm">
-                    <div class="progress">
-                      <span class="progress-value">60%</span>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                           aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
-                  </div>
-                </td>
-                <td class="text-right">7,288 ICX
-                </td>
-                <td class="text-right">Paris</td>
+                <td>5,867</td>
+                <td>2.01%</td>
+                <td>7,288 ICX</td>
+                <td>Paris</td>
               </tr>
 
               <tr>
-                <td class="text-center">
+                <td>2</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/noris.png' %}" alt="photo">
                   </div>
@@ -81,7 +186,9 @@
                 <td>Noris</td>
                 <td>6,168,567</td>
                 <td>5,667</td>
-                <td class="text-center">
+                <td>2.00%</td>
+                <!--
+                <td class="pl-4">
                   <div class="progress-container progress-sm">
                     <div class="progress">
                       <span class="progress-value">60%</span>
@@ -90,13 +197,15 @@
                     </div>
                   </div>
                 </td>
-                <td class="text-right">7,288 ICX
+                -->
+                <td>7,288 ICX
                 </td>
-                <td class="text-right">San Francisco</td>
+                <td>San Francisco</td>
               </tr>
 
               <tr>
-                <td class="text-center">
+                <td>3</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/draiconball.png' %}" alt="photo">
                   </div>
@@ -104,22 +213,15 @@
                 <td>Draicon Ball</td>
                 <td>6,168,567</td>
                 <td>5,667</td>
-                <td class="text-center">
-                  <div class="progress-container progress-sm">
-                    <div class="progress">
-                      <span class="progress-value">60%</span>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                           aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
-                  </div>
+                <td>1.99%</td>
+                <td>7,288 ICX
                 </td>
-                <td class="text-right">7,288 ICX
-                </td>
-                <td class="text-right">Seoul</td>
+                <td>Seoul</td>
               </tr>
 
               <tr>
-                <td class="text-center">
+                <td>4</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/iconsweden.png' %}" alt="photo">
                   </div>
@@ -127,22 +229,15 @@
                 <td>ICON Sweden</td>
                 <td>6,168,567</td>
                 <td>5,667</td>
-                <td class="text-center">
-                  <div class="progress-container progress-sm">
-                    <div class="progress">
-                      <span class="progress-value">60%</span>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                           aria-valuemax="100" style="width: 60%;"></div>
-                    </div>
-                  </div>
+                <td>1.98%</td>
+                <td>7,288 ICX
                 </td>
-                <td class="text-right">7,288 ICX
-                </td>
-                <td class="text-right">Sweden</td>
+                <td>Sweden</td>
               </tr>
 
               <tr>
-                <td class="text-center">
+                <td>5</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/iconode.png' %}" alt="photo">
                   </div>
@@ -150,22 +245,15 @@
                 <td>ICONode</td>
                 <td>1,234,567</td>
                 <td>1,221</td>
-                <td class="text-center">
-                  <div class="progress-container progress-sm">
-                    <div class="progress">
-                      <span class="progress-value">29%</span>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                           aria-valuemax="100" style="width: 29%;"></div>
-                    </div>
-                  </div>
+                <td>1.93%</td>
+                <td>7,288 ICX
                 </td>
-                <td class="text-right">7,288 ICX
-                </td>
-                <td class="text-right">Puerto Rico</td>
+                <td>Puerto Rico</td>
               </tr>
 
               <tr>
-                <td class="text-center">
+                <td>6</td>
+                <td>
                   <div class="photo">
                     <img src="{% static 'dashboard/img/velic.png' %}" alt="photo">
                   </div>
@@ -173,18 +261,10 @@
                 <td>Velic</td>
                 <td>1,088,331</td>
                 <td>998</td>
-                <td class="text-center">
-                  <div class="progress-container progress-sm">
-                    <div class="progress">
-                      <span class="progress-value">24%</span>
-                      <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0"
-                           aria-valuemax="100" style="width: 25%;"></div>
-                    </div>
-                  </div>
+                <td>1.91%</td>
+                <td>7,288 ICX
                 </td>
-                <td class="text-right">7,288 ICX
-                </td>
-                <td class="text-right">Singapore</td>
+                <td>Singapore</td>
               </tr>
 
               </tbody>
@@ -446,47 +526,7 @@
     </div>
   </div>
 
-  <!-- ICX Market Chart -->
-  <div class="row">
-    <div class="col-12">
-      <div class="card card-chart">
-        <!-- Market Chart Header -->
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-6 text-left">
-              <h2>ICX Chart</h2>
-              <!--<h2 class="card-title">ICX Chart</h2>-->
-            </div>
-            <div class="col-sm-6 duration">
-              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                  <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">Day</span>
-                  <span class="d-block d-sm-none day on" onclick="toggleDuration('DAY');">24H</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="1">
-                  <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">Week</span>
-                  <span class="d-block d-sm-none week" onclick="toggleDuration('WEEK');">7D</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="2">
-                  <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">Month</span>
-                  <span class="d-block d-sm-none month" onclick="toggleDuration('MONTH');">30D</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Market Chart Body -->
-        <div class="card-body">
-						<div class="chart">
-						<canvas class="chartCanvas" id="chartCanvas"></canvas>
-						</div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- DAPPs Market Cap -->
   <div class="row">

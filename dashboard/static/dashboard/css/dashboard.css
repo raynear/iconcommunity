@@ -14,18 +14,19 @@ h2 {
 
 .progress-container.progress-sm .progress .progress-value {
     position: absolute;
-    top: -3px;
+    top: 0px;
     left: -27px;
-    color: #fff;
+    /*color: #fff;*/
+    color: rgba(34, 42, 66, 0.7) !important;
     font-size: .62475rem;
-}
-
-.progress-container.progress-sm {
-    margin-top: 10px;
 }
 
 .progress-container {
     position: relative;
+}
+
+.progress-container.progress-sm {
+    margin-top: 10px;
 }
 
 .progress-container .progress .progress-bar {
@@ -42,7 +43,6 @@ h2 {
     white-space: nowrap;
 }
 
-
 p {
     display: block;
     margin-block-start: 1em;
@@ -53,10 +53,9 @@ p {
 
 .table-typeI td:nth-child(3) {
     font-size: 10px;
-}
-.table-typeI td:nth-child(3){
     text-align: right;
 }
+
 [class*=table-type] td {
     border-bottom: 1px solid #e6e6e6;
     padding: 11px 20px 5px;
@@ -73,3 +72,13 @@ p {
     text-align: center;
 
 }
+
+/* Ranking */
+.table.ranking th, .table.ranking td {
+    text-align: center;
+}
+
+
+
+
+

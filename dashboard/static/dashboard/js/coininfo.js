@@ -7,10 +7,12 @@ var BTC = "BTC", ETH = "ETH", USD = "USD", KRW = "KRW";
 var rateInfoObj = {BTC: 0,ETH: 0,USD: 0,KRW: 0};
 var marketCapInfoObj = {BTC: 0,ETH: 0,USD: 0};
 var volume24Info = {BTC: 0, ETH: 0, USD: 0};
+/*
 var histoInfoObj = {BTC: [],ETH: [],USD: []};
 var histoDayInfoObj = {BTC: [],ETH: [],USD: []};
 var histoMonthInfoObj = {BTC: [],ETH: [],USD: []};
 var histoWeekInfoObj = {BTC: [],ETH: [],USD: []};
+*/
 var $selectRate = $('.tab.item-01');  //btc, eth, usd
 var $selectChartPeriod = $('.duration');
 var $rate = $('.screen1').find('.eth');
@@ -355,11 +357,15 @@ $selectChartPeriod.on('click', 'li', function(){
 });
 
 function toggleDuration(selectedPeriod){
+    var selectedPeriod = $(this).text();
+    var selectedCurrency = $selectRate.find('.on').text();
     if(selectedPeriod === 'DAY'){
-        drawPriceChartForOneDay("USD", 12);
+        drawPriceChartForOneDay(selectedCurrency, 12);
     }else if(selectedPeriod === 'WEEK'){
-        drawPriceChartForOneWeek("USD", 24);
+        drawPriceChartForOneWeek(selectedCurrency, 24);
     }else{
-        drawPriceChartForOneMonth("USD", 12);
+        drawPriceChartForOneMonth(selectedCurrency, 12);
     }
 }
+
+function toggleCurrency()
