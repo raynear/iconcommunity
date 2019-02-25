@@ -1,27 +1,28 @@
 Chart.defaults.global.elements.point.pointStyle = 'circle';
 Chart.defaults.global.elements.point.backgroundColor = 'rgba(75, 192, 192, 1)';
-var LANG = $("html").attr("lang");
+//var LANG = $("html").attr("lang");
 var CHART;
 var totalSupply = 0;
 var BTC = "BTC", ETH = "ETH", USD = "USD", KRW = "KRW";
 var rateInfoObj = {BTC: 0,ETH: 0,USD: 0,KRW: 0};
 var marketCapInfoObj = {BTC: 0,ETH: 0,USD: 0};
 var volume24Info = {BTC: 0, ETH: 0, USD: 0};
-/*
 var histoInfoObj = {BTC: [],ETH: [],USD: []};
 var histoDayInfoObj = {BTC: [],ETH: [],USD: []};
 var histoMonthInfoObj = {BTC: [],ETH: [],USD: []};
 var histoWeekInfoObj = {BTC: [],ETH: [],USD: []};
-*/
+
 var $selectRate = $('.tab.item-01');  //btc, eth, usd
 var $selectChartPeriod = $('.duration');
 var $rate = $('.screen1').find('.eth');
-var $selectedRate = $rate.find('em');
+//var $selectedRate = $rate.find('em');
 var $rateKrw = $('.screen1').find('.price');
 var $marketCapNum = $('.screen1').find('.market-vol-wrap').find('.left p:nth-child(2)');
 var $volumeNum = $('.screen1').find('.market-vol-wrap').find('.right p:nth-child(2)');
 var $table = $('.table-typeA');
 var ctx = document.getElementById("chartCanvas");
+
+
 function addCommas(nStr) {
     nStr += '';
     var x = nStr.split('.');
@@ -99,6 +100,7 @@ function getHistoDayAjax(coinTypeParam, limitParam, aggregateParam) {
         url: url
     })
 }
+
 function changeRateText(currencyUnit) {
     $rate.text(rateInfoObj[currencyUnit]);
     $rate.append("<em>" + currencyUnit + "</em>");
@@ -368,4 +370,4 @@ function toggleDuration(selectedPeriod){
     }
 }
 
-function toggleCurrency()
+function toggleCurrency(){}

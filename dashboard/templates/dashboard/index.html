@@ -1,13 +1,9 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
 {% block extra_head %}
   <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet"/>
 {% endblock %}
-
 {% block section %}Dashboard{% endblock %}
-
 {% block content %}
 
 
@@ -16,29 +12,27 @@
   <!-- ICX Price -->
   <div class="row">
     <div class="col-12">
-      <div class="card card-chart">
-        <!-- Market Chart Header -->
+      <div class="card">
+
+        <!-- Card Header -->
         <div class="card-header">
           <div class="row">
-            <div class="col-sm-6 text-left">
-              <h2>ICX Price</h2>
-              <!--<h2 class="card-title">ICX Chart</h2>-->
-            </div>
-            <div class="col-sm-6 duration">
+            <div class="col-sm-6 text-left"><h2>ICX Price</h2></div>
+            <div class="col-sm-6 rate">
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                 <label class="btn btn-sm btn-primary btn-simple active" id="0">
                   <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">BTC</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('BTC');">BTC</span>
                   <span class="d-block d-sm-none day on" onclick="toggleCurrency('BTC');">BTC</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">ETH</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleCurrency('ETH');">ETH</span>
                   <span class="d-block d-sm-none week" onclick="toggleCurrency('ETH');">ETH</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="2">
                   <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">USD</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleCurrency('USD');">USD</span>
                   <span class="d-block d-sm-none month" onclick="toggleCurrency('USD');">USD</span>
                 </label>
               </div>
@@ -46,33 +40,30 @@
           </div>
         </div>
 
-        <!-- Body -->
+        <!-- Card Body -->
         <div class="card-body">
 					<div class="part">
-						<p class="icx-group">
+
+            <p class="icx-group">
 							<span class="icx">1<em>ICX</em></span> <span class="same">=</span>
 							<span class="eth">0<em>BTC</em></span>
 						</p>
-						<!-- <p class="price">
-							0<em>KRW</em>
-						</p> -->
+
 						<ul class="content half market-vol-wrap">
 							<li class="left">
 								<p class="subTitle">Marketcap</p>
-								<p>
-									<em>B</em>0<em>K</em>
-								</p>
+								<p><em>B</em>0<em>K</em></p>
 							</li>
 							<li class="right">
 								<p class="subTitle">Volume</p>
-								<p>
-									<em>B</em>0
-								</p>
+								<p><em>B</em>0</p>
 							</li>
 						</ul>
 					</div>
 
         </div>
+
+
       </div>
     </div>
   </div>
@@ -82,12 +73,11 @@
   <div class="row">
     <div class="col-12">
       <div class="card card-chart">
-        <!-- Market Chart Header -->
+        <!-- Card Header -->
         <div class="card-header">
           <div class="row">
             <div class="col-sm-6 text-left">
               <h2>ICX Chart</h2>
-              <!--<h2 class="card-title">ICX Chart</h2>-->
             </div>
             <div class="col-sm-6 duration">
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
@@ -110,10 +100,10 @@
             </div>
           </div>
         </div>
-        <!-- Market Chart Body -->
+        <!-- Card Body -->
         <div class="card-body">
 						<div class="chart">
-						<canvas class="chartCanvas" id="chartCanvas"></canvas>
+						  <canvas class="chartCanvas" id="chartCanvas"></canvas>
 						</div>
         </div>
       </div>
