@@ -34,6 +34,7 @@ function addCommas(nStr) {
     }
     return x1 + x2;
 }
+
 function getPriceInfoAjax() {
     return $.ajax({
         url: 'https://min-api.cryptocompare.com/data/price?fsym=ICX&tsyms=BTC,USD,ETH,KRW'
@@ -76,6 +77,7 @@ function getHistoMinuteAjax(coinTypeParam, limitParam, aggregateParam) {
         url: url
     });
 }
+
 function getHistoHourAjax(coinTypeParam, limitParam, aggregateParam) {
     //1<=aggregate<=30 default 1
     //1<=limit<=2000 , default: 168
@@ -88,6 +90,7 @@ function getHistoHourAjax(coinTypeParam, limitParam, aggregateParam) {
         url: url
     })
 }
+
 function getHistoDayAjax(coinTypeParam, limitParam, aggregateParam) {
     //1<=aggregate<=30 default 1
     //1<=limit<=2000, default 30
@@ -105,6 +108,7 @@ function changeRateText(currencyUnit) {
     $rate.text(rateInfoObj[currencyUnit]);
     $rate.append("<em>" + currencyUnit + "</em>");
 }
+
 function changeMarketCapText(currencyUnit) {
     if (currencyUnit === BTC) {
         $marketCapNum.html("<em>B</em>");
@@ -116,6 +120,7 @@ function changeMarketCapText(currencyUnit) {
     $marketCapNum.append(addCommas((marketCapInfoObj[currencyUnit] / 1000).toFixed(2)));
     $marketCapNum.append("<em> K</em>");
 }
+
 function changeVolumeText(currencyUnit) {
     if (currencyUnit === BTC) {
         $volumeNum.html("<em>B</em>");
@@ -126,6 +131,7 @@ function changeVolumeText(currencyUnit) {
     }
     $volumeNum.append(addCommas(volume24Info[currencyUnit].toFixed(2)));
 }
+
 function fillTable(type, today){
     $table.find('thead').find('em').each(
         function(index, element){
