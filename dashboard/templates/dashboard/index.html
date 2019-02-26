@@ -19,20 +19,20 @@
           <div class="row">
             <div class="col-sm-6 text-left"><h2>ICX Price</h2></div>
             <div class="col-sm-6 rate">
-              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+              <div class="btn-group btn-group-toggle float-right currency" data-toggle="buttons">
                 <label class="btn btn-sm btn-primary btn-simple active" id="0">
                   <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block on" onclick="toggleCurrency('BTC');">BTC</span>
-                  <span class="d-block d-sm-none on" onclick="toggleCurrency('BTC');">BTC</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('BTC');">BTC</span>
+                  <span class="d-block d-sm-none" onclick="toggleCurrency('BTC');">BTC</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleCurrency('ETH');">ETH</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('ETH');">ETH</span>
                   <span class="d-block d-sm-none" onclick="toggleCurrency('ETH');">ETH</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="2">
                   <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleCurrency('USD');">USD</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('USD');">USD</span>
                   <span class="d-block d-sm-none" onclick="toggleCurrency('USD');">USD</span>
                 </label>
               </div>
@@ -42,25 +42,24 @@
 
         <!-- Card Body -->
         <div class="card-body">
-					<div class="part">
+          <div class="part rates">
 
             <p class="icx-group">
-							<span class="icx">1<em>ICX</em></span> <span class="same">=</span>
-							<span class="eth">0<em>BTC</em></span>
-						</p>
+              <span class="icx">1<em>ICX</em></span> <span class="same">=</span>
+              <span class="eth" id="eth">0<em>BTC</em></span>
+            </p>
 
-						<ul class="content half market-vol-wrap">
-							<li class="left">
-								<p class="subTitle">Marketcap</p>
-								<p><em>B</em>0<em>K</em></p>
-							</li>
-							<li class="right">
-								<p class="subTitle">Volume</p>
-								<p><em>B</em>0</p>
-							</li>
-						</ul>
-					</div>
-
+            <ul class="content half market-vol-wrap">
+              <li class="left">
+                <p class="subTitle">Marketcap</p>
+                <p><em>B</em>0<em>K</em></p>
+              </li>
+              <li class="right">
+                <p class="subTitle">Volume</p>
+                <p><em>B</em>0</p>
+              </li>
+            </ul>
+          </div>
         </div>
 
 
@@ -83,18 +82,18 @@
               <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
                 <label class="btn btn-sm btn-primary btn-simple active" id="0">
                   <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block day on" onclick="toggleDuration('DAY');">Day</span>
-                  <span class="d-block d-sm-none day on" onclick="toggleDuration('DAY');">24H</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('DAY');">Day</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('DAY');">24H</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="1">
                   <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block week" onclick="toggleDuration('WEEK');">Week</span>
-                  <span class="d-block d-sm-none week" onclick="toggleDuration('WEEK');">7D</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('WEEK');">Week</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('WEEK');">7D</span>
                 </label>
                 <label class="btn btn-sm btn-primary btn-simple" id="2">
                   <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block month" onclick="toggleDuration('MONTH');">Month</span>
-                  <span class="d-block d-sm-none month" onclick="toggleDuration('MONTH');">30D</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('MONTH');">Month</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('MONTH');">30D</span>
                 </label>
               </div>
             </div>

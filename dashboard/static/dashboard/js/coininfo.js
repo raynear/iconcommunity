@@ -12,10 +12,24 @@ var histoDayInfoObj = {BTC: [],ETH: [],USD: []};
 var histoMonthInfoObj = {BTC: [],ETH: [],USD: []};
 var histoWeekInfoObj = {BTC: [],ETH: [],USD: []};
 
-var $selectRate = $('.tab.item-01');  //btc, eth, usd
+
+var activeCurrency = "BTC";
+var activePeriod = "DAY";
+
+//var $selectRate = $('.tab.item-01');  //btc, eth, usd
+//var $selectRate = $('.currency');
+
 var $selectChartPeriod = $('.duration');
-var $rate = $('.screen1').find('.eth');
-//var $selectedRate = $rate.find('em');
+
+
+$rate = $('.card-body').find('eth');
+//console.log($rate);
+
+
+
+//var $rate = $('.screen1').find('.eth');
+var $selectedRate = $rate.find('em');
+
 var $rateKrw = $('.screen1').find('.price');
 var $marketCapNum = $('.screen1').find('.market-vol-wrap').find('.left p:nth-child(2)');
 var $volumeNum = $('.screen1').find('.market-vol-wrap').find('.right p:nth-child(2)');
@@ -243,19 +257,36 @@ getPriceInfoAjax().then(
         rateInfoObj.USD = Number(res.USD);
         rateInfoObj.KRW = Number(res.KRW);
 
+
+        /*
         $rate.text(rateInfoObj.BTC);
         $rate.append("<em>" + BTC + "</em>");
         $rateKrw.text(addCommas(rateInfoObj.KRW));
         $rateKrw.append("<em>" + KRW + "</em>");
+        */
+
+        $('#eth').text(rateInfoObj.BTC);
+        $('#eth').append("<em>" + BTC + "</em>");
+
+
         getMarketCapInfoAjax().then(
             function (res) {
-                var selectedPeriod = $selectChartPeriod.find('.on');
+                //var selectedPeriod = $selectChartPeriod.find('.on');
                 totalSupply = res.Data.ICX.TotalCoinSupply;
                 marketCapInfoObj[BTC] = Number(totalSupply) * rateInfoObj.BTC;
                 marketCapInfoObj[ETH] = Number(totalSupply) * rateInfoObj.ETH;
                 marketCapInfoObj[USD] = Number(totalSupply) * rateInfoObj.USD;
                 changeMarketCapText(BTC);
 
+                if(activePeriod == 'DAY'){
+                    drawPriceChartForOneDay(BTC, 12);
+                } else if(activePeriod == 'WEEK'){
+                    drawPriceChartForOneWeek(BTC, 24);
+                }else {
+                    drawPriceChartForOneMonth(BTC, 12);
+                }
+
+                /*
                 if(selectedPeriod.hasClass('day')){
                     drawPriceChartForOneDay(BTC, 12);
                 }else if(selectedPeriod.hasClass('week')){
@@ -263,6 +294,8 @@ getPriceInfoAjax().then(
                 }else {
                     drawPriceChartForOneMonth(BTC, 12);
                 }
+                */
+                /*
                 $selectRate.on('click', 'li', function () {
                     var selectedPeriod = $selectChartPeriod.find('.on');
                     var today = new Date();
@@ -282,27 +315,30 @@ getPriceInfoAjax().then(
                         }
                     }
                 });
+                */
             }
         )
     },
     function (e) {
-        console.log("ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¤ì§€ ëª»í•¨");
+        console.log("exception");
     }
 );
+
 $.when(getVolumeInfoAjax(BTC), getVolumeInfoAjax(ETH), getVolumeInfoAjax(USD)).done(function (res1, res2, res3) {
   histoInfoObj[BTC] = res1[2].responseJSON.Data.reverse();
   histoInfoObj[ETH] = res2[2].responseJSON.Data.reverse();
   histoInfoObj[USD] = res3[2].responseJSON.Data.reverse();
 
   var today = new Date();
-  var type = $selectRate.find('.on').text();
+  var type = activeCurrency; //$selectRate.find('.on').text();
   fillTable(type, today);
 });
+
 $.when(getVolume24InfoAjax(BTC), getVolume24InfoAjax(ETH), getVolume24InfoAjax(USD)).done(function(res1, res2, res3) {
   volume24Info[BTC] = res1[0].RAW.VOLUME24HOURTO;
   volume24Info[ETH] = res2[0].RAW.VOLUME24HOURTO;
   volume24Info[USD] = res3[0].RAW.VOLUME24HOURTO;
-  var type = $selectRate.find('.on').text();
+  var type = activeCurrency; //$selectRate.find('.on').text();
   changeVolumeText(type);
 });
 
@@ -347,7 +383,7 @@ function drawPriceChartForOneMonth(coinType, bifurcation){
   );
 }
 
-
+/*
 $selectChartPeriod.on('click', 'li', function(){
     var selectedPeriod = $(this).text();
     var selectedCurrency = $selectRate.find('.on').text();
@@ -363,7 +399,9 @@ $selectChartPeriod.on('click', 'li', function(){
         }
     }
 });
+*/
 
+/*
 function toggleDuration(selectedPeriod){
     var selectedPeriod = $(this).text();
     var selectedCurrency = $selectRate.find('.on').text();
@@ -375,5 +413,50 @@ function toggleDuration(selectedPeriod){
         drawPriceChartForOneMonth(selectedCurrency, 12);
     }
 }
+*/
 
-function toggleCurrency(){}
+
+function toggleCurrency(currency){
+    activeCurrency = currency;
+
+    changeRateText(currency);
+    changeMarketCapText(currency);
+    changeVolumeText(currency);
+    if(selectedPeriod.hasClass('day')){
+        drawPriceChartForOneDay($(this).text(), 12);
+    }else if(selectedPeriod.hasClass('week')){
+        drawPriceChartForOneWeek($(this).text(), 24);
+    }else {
+        drawPriceChartForOneMonth($(this).text(), 12);
+    }
+
+
+                    var today = new Date();
+                    if (!($(this).hasClass('on'))) {
+                        $selectRate.find('li').removeClass('on');
+                        $(this).addClass('on');
+                        changeRateText($(this).text());
+                        changeMarketCapText($(this).text());
+                        changeVolumeText($(this).text());
+                        fillTable($(this).text(), today);
+                        if(selectedPeriod.hasClass('day')){
+                            drawPriceChartForOneDay($(this).text(), 12);
+                        }else if(selectedPeriod.hasClass('week')){
+                            drawPriceChartForOneWeek($(this).text(), 24);
+                        }else {
+                            drawPriceChartForOneMonth($(this).text(), 12);
+                        }
+                    }
+
+
+}
+
+function toggleDuration(period){
+    if(period === 'DAY'){
+        drawPriceChartForOneDay(activeCurrency, 12);
+    }else if(period === 'WEEK'){
+        drawPriceChartForOneWeek(activeCurrency, 24);
+    }else{
+        drawPriceChartForOneMonth(activeCurrency, 12);
+    }
+}
