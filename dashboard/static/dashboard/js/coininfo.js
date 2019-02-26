@@ -30,9 +30,9 @@ $rate = $('.card-body').find('eth');
 //var $rate = $('.screen1').find('.eth');
 var $selectedRate = $rate.find('em');
 
-var $rateKrw = $('.screen1').find('.price');
-var $marketCapNum = $('.screen1').find('.market-vol-wrap').find('.left p:nth-child(2)');
-var $volumeNum = $('.screen1').find('.market-vol-wrap').find('.right p:nth-child(2)');
+var $rateKrw = $('.card-body').find('.price');
+var $marketCapNum = $('.card-body').find('.market-vol-wrap').find('.left p:nth-child(2)');
+var $volumeNum = $('.card-body').find('.market-vol-wrap').find('.right p:nth-child(2)');
 var $table = $('.table-typeA');
 var ctx = document.getElementById("chartCanvas");
 
@@ -70,7 +70,7 @@ function getVolumeInfoAjax(coinType) {
 function getVolume24InfoAjax(coinType) {
   if(coinType === USD){
     return $.ajax({
-      url : 'https://min-api.cryptocompare.com/data/generateAvg?fsym=ICX&tsym=USD&e=HitBTC'
+      url : 'https://min-api.cryptocompare.com/data/generateAvg?fsym=ICX&tsym=USDT&e=Binance'
     })
   }else{
     return $.ajax({
@@ -119,8 +119,11 @@ function getHistoDayAjax(coinTypeParam, limitParam, aggregateParam) {
 }
 
 function changeRateText(currencyUnit) {
-    $rate.text(rateInfoObj[currencyUnit]);
-    $rate.append("<em>" + currencyUnit + "</em>");
+    //$rate.text(rateInfoObj[currencyUnit]);
+    //$rate.append("<em>" + currencyUnit + "</em>");
+
+    $('#eth').text(rateInfoObj[currencyUnit]);
+    $('#eth').append("<em>" + currencyUnit + "</em>");
 }
 
 function changeMarketCapText(currencyUnit) {
@@ -422,32 +425,33 @@ function toggleCurrency(currency){
     changeRateText(currency);
     changeMarketCapText(currency);
     changeVolumeText(currency);
-    if(selectedPeriod.hasClass('day')){
-        drawPriceChartForOneDay($(this).text(), 12);
-    }else if(selectedPeriod.hasClass('week')){
-        drawPriceChartForOneWeek($(this).text(), 24);
+    /*
+    if(activePeriod == 'DAY'){
+        drawPriceChartForOneDay("DAY", 12);
+    }else if(activePeriod == "WEEK"){
+        drawPriceChartForOneWeek("WEEK", 24);
     }else {
-        drawPriceChartForOneMonth($(this).text(), 12);
+        drawPriceChartForOneMonth("MONTH", 12);
     }
-
-
-                    var today = new Date();
-                    if (!($(this).hasClass('on'))) {
-                        $selectRate.find('li').removeClass('on');
-                        $(this).addClass('on');
-                        changeRateText($(this).text());
-                        changeMarketCapText($(this).text());
-                        changeVolumeText($(this).text());
-                        fillTable($(this).text(), today);
-                        if(selectedPeriod.hasClass('day')){
-                            drawPriceChartForOneDay($(this).text(), 12);
-                        }else if(selectedPeriod.hasClass('week')){
-                            drawPriceChartForOneWeek($(this).text(), 24);
-                        }else {
-                            drawPriceChartForOneMonth($(this).text(), 12);
-                        }
-                    }
-
+    */
+/*
+    var today = new Date();
+    if (!($(this).hasClass('on'))) {
+        $selectRate.find('li').removeClass('on');
+        $(this).addClass('on');
+        changeRateText($(this).text());
+        changeMarketCapText($(this).text());
+        changeVolumeText($(this).text());
+        fillTable($(this).text(), today);
+        if(selectedPeriod.hasClass('day')){
+            drawPriceChartForOneDay($(this).text(), 12);
+        }else if(selectedPeriod.hasClass('week')){
+            drawPriceChartForOneWeek($(this).text(), 24);
+        }else {
+            drawPriceChartForOneMonth($(this).text(), 12);
+        }
+    }
+*/
 
 }
 
