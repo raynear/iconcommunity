@@ -9,105 +9,7 @@
 
 
 
-  <!-- ICX Price -->
-  <div class="row">
-    <div class="col-12">
-      <div class="card">
 
-        <!-- Card Header -->
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-6 text-left"><h2>ICX Price</h2></div>
-            <div class="col-sm-6 rate">
-              <div class="btn-group btn-group-toggle float-right currency" data-toggle="buttons">
-                <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                  <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('BTC');">BTC</span>
-                  <span class="d-block d-sm-none" onclick="toggleCurrency('BTC');">BTC</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="1">
-                  <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('ETH');">ETH</span>
-                  <span class="d-block d-sm-none" onclick="toggleCurrency('ETH');">ETH</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="2">
-                  <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('USD');">USD</span>
-                  <span class="d-block d-sm-none" onclick="toggleCurrency('USD');">USD</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card Body -->
-        <div class="card-body">
-          <div class="part rates">
-
-            <p class="icx-group">
-              <span class="icx">1<em>ICX</em></span> <span class="same">=</span>
-              <span class="eth" id="eth">0<em>BTC</em></span>
-            </p>
-
-            <ul class="content half market-vol-wrap">
-              <li class="left">
-                <p class="subTitle">Marketcap</p>
-                <p><em>B</em>0<em>K</em></p>
-              </li>
-              <li class="right">
-                <p class="subTitle">Volume</p>
-                <p><em>B</em>0</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-
-      </div>
-    </div>
-  </div>
-
-
-  <!-- ICX Market Chart -->
-  <div class="row">
-    <div class="col-12">
-      <div class="card card-chart">
-        <!-- Card Header -->
-        <div class="card-header">
-          <div class="row">
-            <div class="col-sm-6 text-left">
-              <h2>ICX Chart</h2>
-            </div>
-            <div class="col-sm-6 duration">
-              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
-                <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                  <input type="radio" name="options" checked>
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('DAY');">Day</span>
-                  <span class="d-block d-sm-none" onclick="toggleDuration('DAY');">24H</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="1">
-                  <input type="radio" class="d-none d-sm-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('WEEK');">Week</span>
-                  <span class="d-block d-sm-none" onclick="toggleDuration('WEEK');">7D</span>
-                </label>
-                <label class="btn btn-sm btn-primary btn-simple" id="2">
-                  <input type="radio" class="d-none" name="options">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('MONTH');">Month</span>
-                  <span class="d-block d-sm-none" onclick="toggleDuration('MONTH');">30D</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Card Body -->
-        <div class="card-body">
-						<div class="chart">
-						  <canvas class="chartCanvas" id="chartCanvas"></canvas>
-						</div>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <!-- Ranking -->
   <div class="row">
@@ -515,7 +417,105 @@
     </div>
   </div>
 
+  <!-- ICX Price -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
 
+        <!-- Card Header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-6 text-left"><h2>ICX Price</h2></div>
+            <div class="col-sm-6 rate">
+              <div class="btn-group btn-group-toggle float-right currency" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('BTC');">BTC</span>
+                  <span class="d-block d-sm-none" onclick="toggleCurrency('BTC');">BTC</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('ETH');">ETH</span>
+                  <span class="d-block d-sm-none" onclick="toggleCurrency('ETH');">ETH</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleCurrency('USD');">USD</span>
+                  <span class="d-block d-sm-none" onclick="toggleCurrency('USD');">USD</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="part rates">
+
+            <p class="icx-group">
+              <span class="icx">1<em>ICX</em></span> <span class="same">=</span>
+              <span class="eth" id="eth">0<em>BTC</em></span>
+            </p>
+
+            <ul class="content half market-vol-wrap">
+              <li class="left">
+                <p class="subTitle">Marketcap</p>
+                <p><em>B</em>0<em>K</em></p>
+              </li>
+              <li class="right">
+                <p class="subTitle">Volume</p>
+                <p><em>B</em>0</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ICX Market Chart -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card card-chart">
+        <!-- Card Header -->
+        <div class="card-header">
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <h2>ICX Chart</h2>
+            </div>
+            <div class="col-sm-6 duration">
+              <div class="btn-group btn-group-toggle float-right" data-toggle="buttons">
+                <label class="btn btn-sm btn-primary btn-simple active" id="0">
+                  <input type="radio" name="options" checked>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('DAY');">Day</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('DAY');">24H</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="1">
+                  <input type="radio" class="d-none d-sm-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('WEEK');">Week</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('WEEK');">7D</span>
+                </label>
+                <label class="btn btn-sm btn-primary btn-simple" id="2">
+                  <input type="radio" class="d-none" name="options">
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" onclick="toggleDuration('MONTH');">Month</span>
+                  <span class="d-block d-sm-none" onclick="toggleDuration('MONTH');">30D</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+						<div class="chart">
+						  <canvas class="chartCanvas" id="chartCanvas"></canvas>
+						</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- DAPPs Market Cap -->
   <div class="row">
