@@ -1,4 +1,4 @@
-h2 {
+h2.card-title {
   color: #333!important;
 }
 
@@ -84,7 +84,7 @@ p {
 
 li{ list-style:none; }
 
-.card-body .icx-group {text-align: center; font-size: 72px; font-weight: 700; color: #262626; height: 100px; line-height: 35px; border-bottom: 2px solid #1aaaba;}
+.card-body .icx-group {text-align: center; font-size: 36px; font-weight: 700; color: #262626; height: 100px; line-height: 35px; border-bottom: 2px solid #1aaaba;}
 .card-body .icx-group em{font-size: 28px; font-weight: 500; margin-left: 10px;}
 .card-body .icx-group .same{font-size: 30px; vertical-align: middle; margin: 0 10px;}
 .card-body .price{ padding: 11px 0; background: #262626; color: #fff; font-size: 40px; font-weight: 700; text-align: center; margin-top: 30px; }
@@ -95,7 +95,7 @@ li{ list-style:none; }
 .card-body .content { text-align: center; color: #1aaaba!important; margin: 43px 0 80px;}
 .card-body .content .left{    background: -webkit-linear-gradient(#1aaaba, #1aaaba) right center no-repeat; background-size: 2px 70px;}
 .card-body .content li p{ margin: 1px 0;    font-weight: 400;}
-.card-body .content li p:last-child{font-size: 62px; font-weight: 700;}
+.card-body .content li p:last-child{font-size: 32px; font-weight: 700;}
 .card-body .content li p:last-child em{font-size: 26px; margin-right: 13px; font-weight: 500;}
 .card-body .part {position:relative;}
 /*.overviews.content-wrap .screen1 .content li p:last-child em:nth-child(2){font-weight: 600;}*/
