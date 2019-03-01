@@ -11242,6 +11242,9 @@ textarea.form-control {
     color: #1aaaba !important;
   }
 
+.fa-moon:hover{
+  color: #1aaaba !important;
+}
 
 
 .navbar-minimize-fixed {

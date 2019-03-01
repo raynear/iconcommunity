@@ -431,3 +431,8 @@ function hexToRGB(hex, alpha) {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 }
+
+function toggleMoon(){
+  $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
+  $('body').toggleClass('white-content');
+}
