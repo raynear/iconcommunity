@@ -11229,9 +11229,18 @@ textarea.form-control {
   .navbar .navbar-toggle button:focus, .navbar .navbar-toggler {
     outline: none; }
 
-  /*language*/
+  /* custom language */
+
+  .bg-white .nav-lang {
+    color: #333!important;
+  }
+
+  .white-content .nav-lang{
+    color: #333!important;
+  }
 
   .nav-lang {
+    color: #fff!important;
     font-size: 1rem;
     font-weight:400 !important;
   }
@@ -11242,9 +11251,21 @@ textarea.form-control {
     color: #1aaaba !important;
   }
 
-.fa-moon:hover{
-  color: #1aaaba !important;
-}
+  .bg-white .fa-moon {
+    color: #333!important;
+  }
+
+  .white-content .fa-moon {
+    color: #333!important;
+  }
+
+  .fa-moon {
+    color: #fff!important;
+  }
+
+  .fa-moon:hover{
+    color: #1aaaba !important;
+  }
 
 
 .navbar-minimize-fixed {
