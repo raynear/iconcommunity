@@ -436,3 +436,4 @@ function toggleMoon(){
   $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
   $('body').toggleClass('white-content');
 }
+
