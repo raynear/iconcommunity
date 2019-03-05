@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link href="{% static 'resources/css/resources.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block title %}Resources{% endblock %}
+{% block section %}Resources{% endblock %}
+
+{% block content %}
+<h2>Resource page</h2>
+{% endblock %}
+
+{% block extra_js %}
+
+  <!-- toggle active class for nav, put to common js -->
+  <script>
+    $(document).ready(function() {
+        $('.nav > li').each(function() {
+          if($(this).find('p').text() == document.title)
+            $(this).addClass('active');
+        });
+    });
+  </script>
+
+{% endblock %}

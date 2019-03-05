@@ -79,7 +79,7 @@
         </ul>
         -->
         <ul class="nav">
-          <li class="active">
+          <li>
             <a href="/dashboard/">
               <i class="tim-icons"><img src="{% static 'logo/pie.png' %}" width="22" height="22" style="margin-top: -10px; margin-left: -4px;"></i>
               <p>Dashboard</p>
@@ -95,6 +95,12 @@
             <a href="https://forum.icon.community/" target="_blank">
               <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -6px;"></i>
               <p>Forum</p>
+            </a>
+          </li>
+          <li>
+            <a href="/resources/">
+              <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -6px;"></i>
+              <p>Resources</p>
             </a>
           </li>
         </ul>
@@ -296,6 +302,15 @@
           $('.nav-lang.active').not(this).removeClass('active');
           $(this).toggleClass('active');
         })
+
+        // toggle menu
+        /*
+        $('.nav').click(function() {
+          $('.nav li').removeClass('active');
+          $(this).addClass('active');
+        })
+        */
+
       });
     });
   </script>

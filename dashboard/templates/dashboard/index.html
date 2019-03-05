@@ -3,6 +3,7 @@
 {% block extra_head %}
   <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet"/>
 {% endblock %}
+{% block title %}Dashboard{% endblock %}
 {% block section %}Dashboard{% endblock %}
 {% block content %}
 
@@ -616,7 +617,14 @@
     $(document).ready(function() {
         demo.initDashboardPageCharts();
         demo.initVectorMap();
+
+        $('.nav > li').each(function() {
+          if($(this).find('p').text() == document.title)
+            $(this).addClass('active');
+        });
+
     });
+
   </script>
 
 {% endblock %}
