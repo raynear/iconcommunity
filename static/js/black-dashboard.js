@@ -154,8 +154,6 @@ $(document).ready(function() {
 
   });
 
-
-
   blackDashboard.initMinimizeSidebar();
 
   var scroll_distance = $navbar_color.attr('color-on-scroll') || 500;
@@ -200,6 +198,24 @@ $(document).ready(function() {
       offText: data_off_label
     });
   });
+});
+
+$(document).mouseup(function (e)
+{
+
+  if(!$navbar.is(e.target) && $navbar.has(e.target).length === 0){
+      //alert("HERE");
+      /*
+      $collapse.on('show.bs.collapse', function() {
+        $(this).closest('.navbar').removeClass('navbar-transparent').addClass('bg-white');
+      }).on('hide.bs.collapse', function() {
+        $(this).closest('.navbar').addClass('navbar-transparent').removeClass('bg-white');
+      });
+      $navbar.css('transition', '');
+      */
+  }
+
+
 });
 
 $(document).on('click', '.navbar-toggle', function() {
