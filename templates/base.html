@@ -97,12 +97,41 @@
               <p>Forum</p>
             </a>
           </li>
+
+          <!--
           <li>
             <a href="/resources/">
               <i class="tim-icons"><img src="{% static 'logo/resources.png' %}" width="26" height="26" style="margin-top: -10px; margin-left: -6px;"></i>
               <p>Resources</p>
             </a>
           </li>
+          -->
+
+          <li>
+            <a data-toggle="collapse" href="#resourceSub">
+              <i class="tim-icons"><img src="{% static 'logo/resources.png' %}" width="26" height="26" style="margin-top: -10px; margin-left: -6px;"></i>
+              <p>
+                Resources <b class="caret"></b>
+              </p>
+            </a>
+            <div class="collapse" id="resourceSub">
+              <ul class="nav">
+                <li>
+                  <a href="/resources/collateral/">
+                    <span class="sidebar-mini-icon">C</span>
+                    <span class="sidebar-normal"> Collateral </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/resources/download/">
+                    <span class="sidebar-mini-icon">D</span>
+                    <span class="sidebar-normal"> Download </span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </li>
+
         </ul>
       </div>
     </div>
