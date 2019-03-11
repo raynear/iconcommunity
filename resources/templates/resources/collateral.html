@@ -9,6 +9,14 @@
         left: -5px!important;
     }
 
+    .sidebar .nav li.active > a:not([data-toggle="collapse"]):before, .off-canvas-sidebar .nav li.active > a:not([data-toggle="collapse"]):before {
+      top: 18px!important;
+    }
+
+    li.active span {
+        color: #FFFFFF!important;
+    }
+
   </style>
 {% endblock %}
 {% block title %}Collateral{% endblock %}
@@ -116,7 +124,7 @@ $(document).ready(function() {
 
       ($(this).find('span.section')).each(function() {
         if($(this).text() == document.title)
-            $(this).parent().addClass('active');
+            $(this).parent().parent().addClass('active');
       });
 
     });
