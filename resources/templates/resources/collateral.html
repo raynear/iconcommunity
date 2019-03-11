@@ -2,6 +2,14 @@
 {% load static %}
 {% block extra_head %}
   <link href="{% static 'resources/css/resources.css' %}" rel="stylesheet"/>
+  <style>
+    .collapsing { transition: none !important; }
+
+    .sidebar .nav li.active > a[data-toggle="collapse"]:before {
+        left: -5px!important;
+    }
+
+  </style>
 {% endblock %}
 {% block title %}Collateral{% endblock %}
 {% block section %}Collateral{% endblock %}
@@ -98,8 +106,19 @@
 <script>
 $(document).ready(function() {
     $('.nav > li').each(function() {
-      if($(this).find('p').text() == document.title)
+      if($(this).parent().parent().parent().is('li'))
+        $(this).parent().parent().collapse();
+
+      /*
+      if($(this).find('span.section').text() == document.title)
         $(this).addClass('active');
+      */
+
+      ($(this).find('span.section')).each(function() {
+        if($(this).text() == document.title)
+            $(this).parent().addClass('active');
+      });
+
     });
 });
 </script>
