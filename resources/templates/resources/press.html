@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link href="{% static 'resources/css/resources.css' %}" rel="stylesheet"/>
+  <style>
+    .collapsing {
+      transition: none !important;
+    }
+
+    .sidebar .nav li.active > a[data-toggle="collapse"]:before {
+      left: -5px !important;
+    }
+
+    .sidebar .nav li.active > a:not([data-toggle="collapse"]):before, .off-canvas-sidebar .nav li.active > a:not([data-toggle="collapse"]):before {
+      top: 18px !important;
+    }
+
+    li.active span {
+      color: #FFFFFF !important;
+    }
+
+  </style>
+{% endblock %}
+{% block title %}Press{% endblock %}
+{% block section %}Press{% endblock %}
+
+{% block content %}
+
+  <h3 class="title mt-5">Press</h3>
+
+  <h3 class="mt-5">In the News</h3>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <a href="https://medium.com/helloiconworld" target="_blank">
+          <img src="{% static 'resources/img/medium.png' %}" style="width: 80px; height: 80px;">
+          <p><h4>Medium</h4></p>
+        </a>
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="https://medium.com/helloiconworld" target="_blank">
+          <img src="{% static 'resources/img/billboard.jpg' %}" style="width: 80px; height: 80px;">
+          <p><h4>Medium</h4></p>
+        </a>
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="https://medium.com/helloiconworld" target="_blank">
+          <img src="{% static 'resources/img/coindesk.jpg' %}" style="width: 80px; height: 80px;">
+          <p><h4>Medium</h4></p>
+        </a>
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <a href="https://medium.com/helloiconworld" target="_blank">
+          <img src="{% static 'resources/img/cnbc.png' %}" style="width: 80px; height: 80px;">
+          <p><h4>Medium</h4></p>
+        </a>
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+    </div>
+  </div>
+
+
+  <br><br><h3 class="mt-5">Press Releases</h3>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+      <div class="col-md-3 mb-3">
+        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
+        <p><h5>Mar 11, 2019</h5></p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+  <!-- toggle active class for nav, put to common js -->
+  <script>
+    $(document).ready(function () {
+      $('.nav > li').each(function () {
+        if ($(this).parent().parent().parent().is('li'))
+          $(this).parent().parent().collapse();
+        if ($(this).find('span.section').text() == document.title)
+          $(this).addClass('active');
+      });
+    });
+  </script>
+
+{% endblock %}
