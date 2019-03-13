@@ -31,14 +31,17 @@
   <h3 class="mt-5">In the News</h3>
   <div class="card-body">
     <div class="row">
+      {% for new in news %}
       <div class="col-md-3 mb-3">
-        <a href="https://medium.com/helloiconworld" target="_blank">
-          <img src="{% static 'resources/img/medium.png' %}" style="width: 80px; height: 80px;">
-          <p><h4>Medium</h4></p>
+        <a href="{{ new.news_link }}" target="_blank">
+          <img src="{{ new.news_logo.url }}" style="width: 80px; height: 80px;">
+          <p><h4>{{ new.news_site }}</h4></p>
         </a>
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
+        <p><h4><a href="{{ new.news_link }}" target="_blank">{{ new.news_title }}</a></h4></p>
+        <p><h5>{{ new.news_date }}</h5></p>
       </div>
+      {% endfor %}
+      <!--
       <div class="col-md-3 mb-3">
         <a href="https://medium.com/helloiconworld" target="_blank">
           <img src="{% static 'resources/img/billboard.jpg' %}" style="width: 80px; height: 80px;">
@@ -63,14 +66,22 @@
         <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
         <p><h5>Mar 11, 2019</h5></p>
       </div>
+      -->
     </div>
   </div>
 
+  <br><br>
 
-  <br><br><h3 class="mt-5">Press Releases</h3>
-
+  <h3 class="mt-5">Press Releases</h3>
   <div class="card-body">
     <div class="row">
+      {% for press in presses %}
+      <div class="col-md-3 mb-3">
+        <p><h4><a href="{{ press.press_link }}" target="_blank">{{ press.press_title }}</a></h4></p>
+        <p><h5>{{ press.press_date }}</h5></p>
+      </div>
+      {% endfor %}
+      <!--
       <div class="col-md-3 mb-3">
         <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
         <p><h5>Mar 11, 2019</h5></p>
@@ -83,10 +94,7 @@
         <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
         <p><h5>Mar 11, 2019</h5></p>
       </div>
-      <div class="col-md-3 mb-3">
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
+      -->
     </div>
   </div>
 

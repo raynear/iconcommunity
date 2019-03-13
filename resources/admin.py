@@ -1,5 +1,5 @@
 from django.contrib import admin
+from .models import News, Press
 
-from .models import PressRelease
-
-admin.site.register(PressRelease)
+admin.site.register(News)
+admin.site.register(Press)
