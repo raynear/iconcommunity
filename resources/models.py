@@ -1,6 +1,7 @@
 from django.db import models
 
 import datetime
+from django.utils.translation import gettext as _
 
 
 class PressRelease(models.Model):
