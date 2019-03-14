@@ -46,6 +46,8 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
+var nightmode = false;
+
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -449,7 +451,20 @@ function hexToRGB(hex, alpha) {
 }
 
 function toggleMoon(){
+  nightmode = !nightmode;
   $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
   $('body').toggleClass('white-content');
+  $.ajax({
+        url : '/update_session/',
+        type: "POST",
+        data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value, mode: nightmode},
+        dataType : "json",
+        success: function(data){
+            //alert(data);
+        },
+        error: function(message) {
+          //alert(message.responseText);
+        }
+  });
 }
 

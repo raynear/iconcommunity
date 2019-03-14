@@ -1,4 +1,4 @@
-{% load static %}
+{% load static i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +22,11 @@
 </head>
 
 <body class="white-content"><!-- sidebar-mini -->
+
+{{ request.session.nightmode }}
+
+{% get_current_language as LANGUAGE_CODE %}
+
 <div class="wrapper">
   <div class="navbar-minimize-fixed">
     <button class="minimize-sidebar btn btn-link btn-just-icon">
@@ -116,12 +121,20 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navigation">
+
           <ul class="navbar-nav ml-auto">
+
+            <!-- language redirect -->
+            <form id="language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+            {% get_current_language as LANGUAGE_CODE %}
+            <input name="next" type="hidden" value="{{ redirect_to }}">
+            <input id="post_lang" name="language" value="{{ LANGUAGE_CODE }}" type="hidden">
+            </form>
 
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang active" href="#">EN</a>
+                <a class="nav-lang en" href="javascript:void(0)" onclick="change_language('en');">EN</a>
               </a>
             </li>
 
@@ -130,7 +143,7 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang" href="#">KR</a>
+                <a class="nav-lang ko" href="javascript:void(0)" onclick="change_language('ko');">KR</a>
               </a>
             </li>
 
@@ -142,6 +155,7 @@
             </li>
 
           </ul>
+
         </div>
 
 
@@ -155,25 +169,6 @@
     </div>
     <footer class="footer">
       <div class="container-fluid">
-        <!--
-        <ul class="nav">
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
-              Footer Nav 1
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
-              Footer Nav 2
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="javascript:void(0)" class="nav-link">
-              Footer Nav 3
-            </a>
-          </li>
-        </ul>
-        -->
         <div class="copyright">
           ©
           <script>
@@ -194,6 +189,7 @@
 {% block extra_js %}{% endblock %}
 
 <script>
+
   $(document).ready(function () {
     $().ready(function () {
       $sidebar = $('.sidebar');
@@ -261,13 +257,28 @@
       });
 
       // toggle language
+      /*
       $('.nav-lang').click(function () {
         $('.nav-lang.active').not(this).removeClass('active');
         $(this).toggleClass('active');
       })
+      */
+
+
+      var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
+      $(lang_active).addClass('active');
 
     });
   });
+
+
+
+  function change_language(lang) {
+      post_lang.value = lang;
+      language_form.submit();
+  }
+
+
 </script>
 
 

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block extra_head %}
   <link href="{% static 'resources/css/resources.css' %}" rel="stylesheet"/>
   <style>
@@ -22,7 +22,7 @@
   </style>
 {% endblock %}
 {% block title %}Press{% endblock %}
-{% block section %}Press{% endblock %}
+{% block section %}{% trans 'Press' %}{% endblock %}
 
 {% block content %}
 
