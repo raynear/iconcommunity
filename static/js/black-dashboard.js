@@ -480,7 +480,7 @@ function toggle_nightmode(){
           set_nightmode(data.nightmode);
         },
         error: function(message) {
-          alert('toggle error');
+          //alert('toggle error');
         }
   });
 }
