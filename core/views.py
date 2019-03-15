@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 import json
+from django.http import JsonResponse
 
 
 def update_session(request):
@@ -12,13 +13,15 @@ def update_session(request):
 
 
 def init_nightmode(request):
-    if request.session['nightmode'] is None:
+    if 'nightmode' not in request.session:
         request.session['nightmode'] = False
     #return HttpResponse(str(request.session['nightmode']))
     return HttpResponse(json.dumps({'nightmode': request.session['nightmode']}), content_type="application/json")
+    #return JsonResponse({'foo': 'bar'})
 
 
 def toggle_nightmode(request):
     request.session['nightmode'] = not request.session['nightmode']
+    print(request.session['nightmode']);
     return HttpResponse(json.dumps({'nightmode': request.session['nightmode']}), content_type="application/json")
 
