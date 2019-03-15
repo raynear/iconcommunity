@@ -150,7 +150,7 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a id="moon" href="#" onclick="toggleMoon();"><i class="far fa-moon"></i></a>
+                <a id="moon" href="#" onclick="toggle_nightmode();"><i class="far fa-moon"></i></a>
               </a>
             </li>
 
@@ -267,6 +267,8 @@
 
       var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
       $(lang_active).addClass('active');
+
+      init_nightmode();
 
     });
   });

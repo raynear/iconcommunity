@@ -46,8 +46,6 @@ var seq2 = 0,
   delays2 = 80,
   durations2 = 500;
 
-var nightmode = false;
-
 // Returns a function, that, as long as it continues to be invoked, will not
 // be triggered. The function will be called after it stops being called for
 // N milliseconds. If `immediate` is passed, trigger the function on the
@@ -451,20 +449,40 @@ function hexToRGB(hex, alpha) {
 }
 
 function toggleMoon(){
-  nightmode = !nightmode;
   $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
   $('body').toggleClass('white-content');
+}
+
+function set_nightmode(mode){
+  alert(mode);
+  if(mode == 'True')
+    $('body').removeClass('white-content');
+  else
+    $('body').addClass('white-content');
+}
+
+function toggle_nightmode(){
   $.ajax({
-        url : '/update_session/',
+        url : '/toggle_nightmode/',
         type: "POST",
-        data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value, mode: nightmode},
+        data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value},
         dataType : "json",
         success: function(data){
-            //alert(data);
+          set_nightmode(data.nightmode);
         },
-        error: function(message) {
-          //alert(message.responseText);
-        }
+        error: function(message) {}
   });
 }
 
+function init_nightmode(){
+  $.ajax({
+        url : '/init_nightmode/',
+        type: "POST",
+        data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value},
+        dataType : "json",
+        success: function(data){
+          set_nightmode(data.nightmode);
+        },
+        error: function(message) {alert('error'+message.responseText)}
+  });
+}

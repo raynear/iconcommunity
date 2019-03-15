@@ -7,7 +7,6 @@ def collateral(request):
 
 
 def press(request):
-    print(request.session)
     news = News.objects.all().order_by('-news_date')
     presses = Press.objects.all().order_by('-press_date')
-    return render(request, 'resources/press.html', {'news': news, 'presses': presses})
+    return render(request, 'resources/press.html', {'news': news, 'presses': presses, 'nightmode': request.session['nightmode']})
