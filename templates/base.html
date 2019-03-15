@@ -135,7 +135,7 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang en" href="javascript:void(0)" onclick="change_language('en');">EN</a>
+                <a class="nav-lang {% if LANGUAGE_CODE == 'en' %}active{% endif %}" href="javascript:void(0)" onclick="change_language('en');">EN</a>
               </a>
             </li>
 
@@ -144,7 +144,7 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang ko" href="javascript:void(0)" onclick="change_language('ko');">KR</a>
+                <a class="nav-lang {% if LANGUAGE_CODE == 'ko' %}active{% endif %}" href="javascript:void(0)" onclick="change_language('ko');">KR</a>
               </a>
             </li>
 
@@ -266,8 +266,8 @@
       */
 
 
-      var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
-      $(lang_active).addClass('active');
+      //var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
+      //$(lang_active).addClass('active');
 
       init_nightmode();
 
