@@ -1,22 +1,5 @@
 "use strict";
 
-/*!
-
- =========================================================
- * Black Dashboard PRO - v1.0.0
- =========================================================
-
- * Product Page: https://demos.creative-tim.com/marketplace/black-dashboard-pro/examples/dashboard.html
- * Copyright 2018 Creative Tim (http://www.creative-tim.com)
-
- * Coded by www.creative-tim.com
-
- =========================================================
-
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
- */
-
 var transparent = true;
 var transparentDemo = true;
 var fixedTop = false;
@@ -154,14 +137,14 @@ $(document).ready(function() {
 
   });
 
-  blackDashboard.initMinimizeSidebar();
+  base.initMinimizeSidebar();
 
   var scroll_distance = $navbar_color.attr('color-on-scroll') || 500;
 
   // Check if we have the class "navbar-color-on-scroll" then add the function to remove the class "navbar-transparent" so it will transform to a plain color.
   if ($navbar_color.length != 0) {
-    blackDashboard.checkScrollForTransparentNavbar();
-    $(window).on('scroll', blackDashboard.checkScrollForTransparentNavbar)
+    base.checkScrollForTransparentNavbar();
+    $(window).on('scroll', base.checkScrollForTransparentNavbar)
   }
 
   if ($full_screen_map.length == 0 && $('.bd-docs').length == 0) {
@@ -202,28 +185,17 @@ $(document).ready(function() {
 
 $(document).mouseup(function (e)
 {
-
   if(!$navbar.is(e.target) && $navbar.has(e.target).length === 0){
-      //alert("HERE");
-      /*
-      $collapse.on('show.bs.collapse', function() {
-        $(this).closest('.navbar').removeClass('navbar-transparent').addClass('bg-white');
-      }).on('hide.bs.collapse', function() {
-        $(this).closest('.navbar').addClass('navbar-transparent').removeClass('bg-white');
-      });
-      $navbar.css('transition', '');
-      */
+    //todo :: close menu upon document click
   }
-
-
 });
 
 $(document).on('click', '.navbar-toggle', function() {
   var $toggle = $(this);
 
-  if (blackDashboard.misc.navbar_menu_visible == 1) {
+  if (base.misc.navbar_menu_visible == 1) {
     $html.removeClass('nav-open');
-    blackDashboard.misc.navbar_menu_visible = 0;
+    base.misc.navbar_menu_visible = 0;
     setTimeout(function() {
       $toggle.removeClass('toggled');
       $('.bodyClick').remove();
@@ -237,7 +209,7 @@ $(document).on('click', '.navbar-toggle', function() {
     var div = '<div class="bodyClick"></div>';
     $(div).appendTo('body').click(function() {
       $html.removeClass('nav-open');
-      blackDashboard.misc.navbar_menu_visible = 0;
+      base.misc.navbar_menu_visible = 0;
       setTimeout(function() {
         $toggle.removeClass('toggled');
         $('.bodyClick').remove();
@@ -245,7 +217,7 @@ $(document).on('click', '.navbar-toggle', function() {
     });
 
     $html.addClass('nav-open');
-    blackDashboard.misc.navbar_menu_visible = 1;
+    base.misc.navbar_menu_visible = 1;
   }
 });
 
@@ -263,7 +235,7 @@ $(window).resize(function() {
   }
 });
 
-var blackDashboard = {
+var base = {
   misc: {
     navbar_menu_visible: 0
   },
@@ -283,63 +255,6 @@ var blackDashboard = {
   }, 17),
 
 
-
-  // Activate DateTimePicker
-
-  initDateTimePicker: function() {
-    if ($datetimepicker.length != 0) {
-      $datetimepicker.datetimepicker({
-        icons: {
-          time: "tim-icons icon-watch-time",
-          date: "tim-icons icon-calendar-60",
-          up: "fa fa-chevron-up",
-          down: "fa fa-chevron-down",
-          previous: 'tim-icons icon-minimal-left',
-          next: 'tim-icons icon-minimal-right',
-          today: 'fa fa-screenshot',
-          clear: 'fa fa-trash',
-          close: 'fa fa-remove'
-        }
-
-      });
-    }
-
-    if ($datepicker.length != 0) {
-      $datepicker.datetimepicker({
-        format: 'MM/DD/YYYY',
-        icons: {
-          time: "tim-icons icon-watch-time",
-          date: "tim-icons icon-calendar-60",
-          up: "fa fa-chevron-up",
-          down: "fa fa-chevron-down",
-          previous: 'tim-icons icon-minimal-left',
-          next: 'tim-icons icon-minimal-right',
-          today: 'fa fa-screenshot',
-          clear: 'fa fa-trash',
-          close: 'fa fa-remove'
-        }
-      });
-    }
-
-    if ($timepicker.length != 0) {
-      $timepicker.datetimepicker({
-        // format: 'H:mm',    // use this format if you want the 24hours timepicker
-        format: 'h:mm A', //use this format if you want the 12hours timpiecker with AM/PM toggle
-        icons: {
-          time: "tim-icons icon-watch-time",
-          date: "tim-icons icon-calendar-60",
-          up: "fa fa-chevron-up",
-          down: "fa fa-chevron-down",
-          previous: 'tim-icons icon-minimal-left',
-          next: 'tim-icons icon-minimal-right',
-          today: 'fa fa-screenshot',
-          clear: 'fa fa-trash',
-          close: 'fa fa-remove'
-        }
-      });
-    }
-  },
-
   initMinimizeSidebar: function() {
     if ($('.sidebar-mini').length != 0) {
       sidebar_mini_active = true;
@@ -350,11 +265,11 @@ var blackDashboard = {
       if (sidebar_mini_active == true) {
         $body.removeClass('sidebar-mini');
         sidebar_mini_active = false;
-        blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+        base.showSidebarMessage('Sidebar mini deactivated...');
       } else {
         $body.addClass('sidebar-mini');
         sidebar_mini_active = true;
-        blackDashboard.showSidebarMessage('Sidebar mini activated...');
+        base.showSidebarMessage('Sidebar mini activated...');
       }
 
       // we simulate the window Resize so the charts will get updated in realtime.
@@ -448,10 +363,10 @@ function hexToRGB(hex, alpha) {
   }
 }
 
-function toggleMoon(){
+/*function toggleMoon(){
   $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
   $('body').toggleClass('white-content');
-}
+}*/
 
 
 function init_nightmode(){
@@ -460,13 +375,8 @@ function init_nightmode(){
         type: "POST",
         data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value},
         dataType : "json",
-        success: function(data){
-          //set_nightmode(data.nightmode);
-          //alert('success: '+data.nightmode)
-        },
-        error: function(message) {
-          //alert('error: '+message.responseText)
-        }
+        success: function(data){},
+        error: function(message) {}
   });
 }
 
@@ -479,9 +389,7 @@ function toggle_nightmode(){
         success: function(data){
           set_nightmode(data.nightmode);
         },
-        error: function(message) {
-          //alert('toggle error');
-        }
+        error: function(message) {}
   });
 }
 

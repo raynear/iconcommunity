@@ -2,24 +2,6 @@
 {% load static i18n %}
 {% block extra_head %}
   <link href="{% static 'resources/css/resources.css' %}" rel="stylesheet"/>
-  <style>
-    .collapsing {
-      transition: none !important;
-    }
-
-    .sidebar .nav li.active > a[data-toggle="collapse"]:before {
-      left: -5px !important;
-    }
-
-    .sidebar .nav li.active > a:not([data-toggle="collapse"]):before, .off-canvas-sidebar .nav li.active > a:not([data-toggle="collapse"]):before {
-      top: 18px !important;
-    }
-
-    li.active span {
-      color: #FFFFFF !important;
-    }
-
-  </style>
 {% endblock %}
 {% block title %}Press{% endblock %}
 {% block section %}{% trans 'Press' %}{% endblock %}
@@ -40,33 +22,35 @@
         <p><h5>{{ new.news_date }}</h5></p>
       </div>
       {% endfor %}
-      <!--
-      <div class="col-md-3 mb-3">
-        <a href="https://medium.com/helloiconworld" target="_blank">
-          <img src="{% static 'resources/img/billboard.jpg' %}" style="width: 80px; height: 80px;">
-          <p><h4>Medium</h4></p>
-        </a>
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      <div class="col-md-3 mb-3">
-        <a href="https://medium.com/helloiconworld" target="_blank">
-          <img src="{% static 'resources/img/coindesk.jpg' %}" style="width: 80px; height: 80px;">
-          <p><h4>Medium</h4></p>
-        </a>
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      <div class="col-md-3 mb-3">
-        <a href="https://medium.com/helloiconworld" target="_blank">
-          <img src="{% static 'resources/img/cnbc.png' %}" style="width: 80px; height: 80px;">
-          <p><h4>Medium</h4></p>
-        </a>
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      -->
     </div>
+
+    <!--
+    <span class="step-links pagination">
+      {% if news.has_previous %}
+          <a href="?page1={{ news.previous_page_number }}"> previous </a>
+      {% endif %}
+      <span class="current">
+          Page {{ news.number }} of {{ news.paginator.num_pages }}
+      </span>
+      {% if news.has_next %}
+          <a href="?page1={{ news.next_page_number }}"> next </a>
+      {% endif %}
+    </span>
+    -->
+  <div class="text-center">
+    <div class="pagination">
+      <a href="#">&laquo;</a>
+      <a href="#">1</a>
+      <a class="active" href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>
+      <a href="#">5</a>
+      <a href="#">6</a>
+      <a href="#">&raquo;</a>
+    </div>
+  </div>
+
+
   </div>
 
   <br><br>
@@ -80,22 +64,47 @@
         <p><h5>{{ press.press_date }}</h5></p>
       </div>
       {% endfor %}
-      <!--
-      <div class="col-md-3 mb-3">
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      <div class="col-md-3 mb-3">
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      <div class="col-md-3 mb-3">
-        <p><h4><a href="https://medium.com/helloiconworld" target="_blank">ICON to sponsor "Blockchain Innovations in Public Services"</a></h4></p>
-        <p><h5>Mar 11, 2019</h5></p>
-      </div>
-      -->
     </div>
+
+    <!--
+    <span class="step-links pagination">
+      {% if presses.has_previous %}
+          <a href="?page2={{ presses.previous_page_number }}"> previous </a>
+      {% endif %}
+      <span class="current">
+          Page {{ presses.number }} of {{ presses.paginator.num_pages }}
+      </span>
+      {% if presses.has_next %}
+          <a href="?page2={{ presses.next_page_number }}"> next </a>
+      {% endif %}
+    </span>
+    -->
+
+    {% if presses.has_other_pages %}
+      <ul class="pagination">
+        {% if presses.has_previous %}
+          <li><a href="?page2={{ presses.previous_page_number }}">&laquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+        {% for i in presses.paginator.page_range %}
+          {% if presses.number == i %}
+            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+          {% else %}
+            <li><a href="?page2={{ i }}">{{ i }}</a></li>
+          {% endif %}
+        {% endfor %}
+        {% if presses.has_next %}
+          <li><a href="?page2={{ presses.next_page_number }}">&raquo;</a></li>
+        {% else %}
+          <li class="disabled"><span>&raquo;</span></li>
+        {% endif %}
+      </ul>
+    {% endif %}
+
   </div>
+
+
 
 {% endblock %}
 
