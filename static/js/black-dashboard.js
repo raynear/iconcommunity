@@ -461,25 +461,13 @@ function init_nightmode(){
         data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value},
         dataType : "json",
         success: function(data){
-          set_nightmode(data.nightmode);
+          //set_nightmode(data.nightmode);
           //alert('success: '+data.nightmode)
         },
         error: function(message) {
           //alert('error: '+message.responseText)
         }
   });
-}
-
-function set_nightmode(mode){
-  if(mode == true){
-    $('#moon').find('i').removeClass('far fa-moon');
-    $('#moon').find('i').addClass('fas fa-moon');
-    $('body').removeClass('white-content');
-  }else{
-    $('#moon').find('i').removeClass('fas fa-moon');
-    $('#moon').find('i').addClass('far fa-moon');
-    $('body').addClass('white-content');
-  }
 }
 
 function toggle_nightmode(){
@@ -497,3 +485,15 @@ function toggle_nightmode(){
   });
 }
 
+function set_nightmode(mode){
+  mode = mode.toString().toLowerCase();
+  if(mode == 'true'){
+    $('#moon').find('i').removeClass('far fa-moon');
+    $('#moon').find('i').addClass('fas fa-moon');
+    $('body').removeClass('white-content');
+  }else{
+    $('#moon').find('i').removeClass('fas fa-moon');
+    $('#moon').find('i').addClass('far fa-moon');
+    $('body').addClass('white-content');
+  }
+}

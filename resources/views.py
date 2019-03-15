@@ -3,7 +3,7 @@ from .models import News, Press
 
 
 def collateral(request):
-    return render(request, 'resources/collateral.html')
+    return render(request, 'resources/collateral.html', {'nightmode': request.session['nightmode']})
 
 
 def press(request):

@@ -20,6 +20,12 @@
     }
 
   </style>
+  <script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", function() {
+      var nightmode = '{{ nightmode }}';
+      set_nightmode(nightmode);
+    });
+  </script>
 {% endblock %}
 {% block title %}Collateral{% endblock %}
 {% block section %}Collateral{% endblock %}
