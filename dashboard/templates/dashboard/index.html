@@ -2,12 +2,6 @@
 {% load static %}
 {% block extra_head %}
   <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet"/>
-  <script type="text/javascript">
-    document.addEventListener("DOMContentLoaded", function() {
-      var nightmode = '{{ nightmode }}';
-      set_nightmode(nightmode);
-    });
-  </script>
 {% endblock %}
 {% block title %}Dashboard{% endblock %}
 {% block section %}Dashboard{% endblock %}

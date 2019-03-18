@@ -385,7 +385,7 @@ function toggle_nightmode(){
           set_nightmode(data.nightmode);
         },
         error: function(message) {
-          console.log(message.responseText)
+          //console.log(message.responseText)
         }
   });
 }
