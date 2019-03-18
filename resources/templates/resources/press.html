@@ -12,9 +12,17 @@
 
   <!-- IN THE NEWS -->
   <h3 class="mt-5">In the News</h3>
+
+
+  <div class="endless_page_template">
+      {% include "resources/news_page.html" %}
+  </div>
+
+
+  <!--
   <div class="card-body">
     <div class="row">
-      {% paginate 4 news %}
+      {% paginate 4 news using "news_page" %}
       {% for new in news %}
       <div class="col-md-3 mb-3">
         <a href="{{ new.news_link }}" target="_blank">
@@ -27,43 +35,24 @@
       {% endfor %}
     </div>
     {% show_pages %}
-
-    <!-- paginate
-    {% if news.has_other_pages %}
-    <div class="text-center">
-      <div class="pagination">
-        {% if news.has_previous %}
-          <a href="?page1={{ news.previous_page_number }}">&laquo;</a>
-        {% else %}
-          <a class="disabled">&laquo;</a>
-        {% endif %}
-
-        {% for i in news.paginator.page_range %}
-          {% if news.number == i %}
-            <a class="active" href="#">{{ i }}</a>
-          {% else %}
-            <a href="?page1={{ i }}">{{ i }}</a>
-          {% endif %}
-        {% endfor %}
-        {% if news.has_next %}
-          <a href="?page1={{ news.next_page_number }}">&raquo;</a>
-        {% else %}
-          <a class="disabled">&raquo;</a>
-        {% endif %}
-      </div>
-    </div>
-    {% endif %}
-    -->
-
   </div>
+  -->
+
+
 
   <br><br>
 
   <!-- PRESS RELEASES -->
   <h3 class="mt-5">Press Releases</h3>
+
+  <div class="endless_page_template">
+      {% include "resources/press_page.html" %}
+  </div>
+
+  <!--
   <div class="card-body">
     <div class="row">
-      {% paginate 2 presses using "press" %}
+      {% paginate 4 presses using "press_page" %}
       {% for press in presses %}
       <div class="col-md-3 mb-3">
         <p><h4><a href="{{ press.press_link }}" target="_blank">{{ press.press_title }}</a></h4></p>
@@ -72,8 +61,8 @@
       {% endfor %}
     </div>
     {% show_pages %}
-
-    <!-- paginate
+  -->
+  <!-- paginate
     {% if presses.has_other_pages %}
     <div class="text-center">
       <div class="pagination">
@@ -100,7 +89,7 @@
     {% endif %}
     -->
 
-  </div>
+  <!--</div>-->
 
 
 
@@ -119,5 +108,8 @@
       });
     });
   </script>
+
+  <script src="{% static 'el-pagination/js/el-pagination.js' %}"></script>
+  <script>$.endlessPaginate();</script>
 
 {% endblock %}

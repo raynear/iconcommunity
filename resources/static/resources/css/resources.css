@@ -26,21 +26,35 @@ li.active span {
   display: inline-block;
 }
 
-.pagination a {
-  color: black;
+.white-content .pagination a, .pagination span.endless_page_current, .pagination span.endless_separator {
+  color: black!important;
   float: left;
   padding: 8px 16px;
   text-decoration: none;
   border: 1px solid #ddd;
 }
 
-.pagination a.active {
-  background-color: #1aaaba;
-  color: white;
-  border: 1px solid #1aaaba;
+.pagination a {
+  color: white!important;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  border: 1px solid #666;
 }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+.pagination span.endless_page_current {
+  background-color: #1aaaba;
+  color: white!important;
+  border: 1px solid #1aaaba!important;
+}
+
+.white-content .pagination a:hover:not(.active) {
+  background-color: #ddd!important;
+}
+
+.pagination a:hover:not(.active) {
+  background-color: #666;
+}
 
 .pagination a:first-child {
   border-top-left-radius: 5px;
