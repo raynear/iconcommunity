@@ -7,11 +7,14 @@
 {% block section %}{% trans 'Press' %}{% endblock %}
 
 {% block content %}
+{% load el_pagination_tags %}
   <h3 class="title mt-5">Press</h3>
 
+  <!-- IN THE NEWS -->
   <h3 class="mt-5">In the News</h3>
   <div class="card-body">
     <div class="row">
+      {% paginate 4 news %}
       {% for new in news %}
       <div class="col-md-3 mb-3">
         <a href="{{ new.news_link }}" target="_blank">
@@ -23,41 +26,44 @@
       </div>
       {% endfor %}
     </div>
+    {% show_pages %}
 
-    <!--
-    <span class="step-links pagination">
-      {% if news.has_previous %}
-          <a href="?page1={{ news.previous_page_number }}"> previous </a>
-      {% endif %}
-      <span class="current">
-          Page {{ news.number }} of {{ news.paginator.num_pages }}
-      </span>
-      {% if news.has_next %}
-          <a href="?page1={{ news.next_page_number }}"> next </a>
-      {% endif %}
-    </span>
-    -->
-  <div class="text-center">
-    <div class="pagination">
-      <a href="#">&laquo;</a>
-      <a href="#">1</a>
-      <a class="active" href="#">2</a>
-      <a href="#">3</a>
-      <a href="#">4</a>
-      <a href="#">5</a>
-      <a href="#">6</a>
-      <a href="#">&raquo;</a>
+    <!-- paginate
+    {% if news.has_other_pages %}
+    <div class="text-center">
+      <div class="pagination">
+        {% if news.has_previous %}
+          <a href="?page1={{ news.previous_page_number }}">&laquo;</a>
+        {% else %}
+          <a class="disabled">&laquo;</a>
+        {% endif %}
+
+        {% for i in news.paginator.page_range %}
+          {% if news.number == i %}
+            <a class="active" href="#">{{ i }}</a>
+          {% else %}
+            <a href="?page1={{ i }}">{{ i }}</a>
+          {% endif %}
+        {% endfor %}
+        {% if news.has_next %}
+          <a href="?page1={{ news.next_page_number }}">&raquo;</a>
+        {% else %}
+          <a class="disabled">&raquo;</a>
+        {% endif %}
+      </div>
     </div>
-  </div>
-
+    {% endif %}
+    -->
 
   </div>
 
   <br><br>
 
+  <!-- PRESS RELEASES -->
   <h3 class="mt-5">Press Releases</h3>
   <div class="card-body">
     <div class="row">
+      {% paginate 2 presses using "press" %}
       {% for press in presses %}
       <div class="col-md-3 mb-3">
         <p><h4><a href="{{ press.press_link }}" target="_blank">{{ press.press_title }}</a></h4></p>
@@ -65,42 +71,34 @@
       </div>
       {% endfor %}
     </div>
+    {% show_pages %}
 
-    <!--
-    <span class="step-links pagination">
-      {% if presses.has_previous %}
-          <a href="?page2={{ presses.previous_page_number }}"> previous </a>
-      {% endif %}
-      <span class="current">
-          Page {{ presses.number }} of {{ presses.paginator.num_pages }}
-      </span>
-      {% if presses.has_next %}
-          <a href="?page2={{ presses.next_page_number }}"> next </a>
-      {% endif %}
-    </span>
-    -->
-
+    <!-- paginate
     {% if presses.has_other_pages %}
-      <ul class="pagination">
+    <div class="text-center">
+      <div class="pagination">
         {% if presses.has_previous %}
-          <li><a href="?page2={{ presses.previous_page_number }}">&laquo;</a></li>
+          <a href="?page2={{ presses.previous_page_number }}">&laquo;</a>
         {% else %}
-          <li class="disabled"><span>&laquo;</span></li>
+          <a class="disabled">&laquo;</a>
         {% endif %}
+
         {% for i in presses.paginator.page_range %}
           {% if presses.number == i %}
-            <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            <a class="active" href="#">{{ i }}</a>
           {% else %}
-            <li><a href="?page2={{ i }}">{{ i }}</a></li>
+            <a href="?page2={{ i }}">{{ i }}</a>
           {% endif %}
         {% endfor %}
         {% if presses.has_next %}
-          <li><a href="?page2={{ presses.next_page_number }}">&raquo;</a></li>
+          <a href="?page2={{ presses.next_page_number }}">&raquo;</a>
         {% else %}
-          <li class="disabled"><span>&raquo;</span></li>
+          <a class="disabled">&raquo;</a>
         {% endif %}
-      </ul>
+      </div>
+    </div>
     {% endif %}
+    -->
 
   </div>
 

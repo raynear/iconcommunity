@@ -11,17 +11,8 @@ def press(request):
     news = News.objects.all().order_by('-news_date')
     presses = Press.objects.all().order_by('-press_date')
 
-    #press_page = request.GET.get('page', 1)
-    #press_paginator = Paginator(presses, 4)
-    #try:
-    #    press_show = press_paginator.page(press_page)
-    #except PageNotAnInteger:
-    #    press_show = press_paginator.page(1)
-    #except EmptyPage:
-    #    press_show = press_paginator.page(press_paginator.num_pages)
-
-
-    paginator = Paginator(news, 4)
+    ''' Working version
+    paginator = Paginator(news, 2)
     page = request.GET.get('page1')
     try:
         news = paginator.page(page)
@@ -30,7 +21,7 @@ def press(request):
     except EmptyPage:
         news = paginator.page(paginator.num_pages)
 
-    paginator = Paginator(presses, 4)
+    paginator = Paginator(presses, 2)
     page = request.GET.get('page2')
     try:
         presses = paginator.page(page)
@@ -39,4 +30,6 @@ def press(request):
     except EmptyPage:
         presses = paginator.page(paginator.num_pages)
 
+    return render(request, 'resources/press.html', {'news': news, 'presses': presses, 'nightmode': request.session['nightmode']})
+    '''
     return render(request, 'resources/press.html', {'news': news, 'presses': presses, 'nightmode': request.session['nightmode']})
