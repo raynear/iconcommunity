@@ -363,11 +363,6 @@ function hexToRGB(hex, alpha) {
   }
 }
 
-/*function toggleMoon(){
-  $('#moon').find('i').toggleClass('far fa-moon fas fa-moon');
-  $('body').toggleClass('white-content');
-}*/
-
 
 function init_nightmode(){
   $.ajax({
@@ -389,13 +384,14 @@ function toggle_nightmode(){
         success: function(data){
           set_nightmode(data.nightmode);
         },
-        error: function(message) {}
+        error: function(message) {
+          console.log(message.responseText)
+        }
   });
 }
 
 function set_nightmode(mode){
-  mode = mode.toString().toLowerCase();
-  if(mode == 'true'){
+  if(mode){
     $('#moon').find('i').removeClass('far fa-moon');
     $('#moon').find('i').addClass('fas fa-moon');
     $('body').removeClass('white-content');

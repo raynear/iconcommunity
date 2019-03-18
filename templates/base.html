@@ -24,8 +24,6 @@
 
 <body class="{% if nightmode == True %} {% else %} white-content {% endif %}"><!-- sidebar-mini -->
 
-<!-- {{ nightmode }} -->
-
 {% get_current_language as LANGUAGE_CODE %}
 
 <div class="wrapper">
@@ -151,7 +149,7 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a id="moon" href="#" onclick="toggle_nightmode();"><i class="{% if nightmode == True %} fas fa-moon {% else %} far fa-moon {% endif %}"></i></a>
+                <a id="moon" onclick="toggle_nightmode();"><i class="{% if nightmode == True %} fas fa-moon {% else %} far fa-moon {% endif %}"></i></a>
               </a>
             </li>
 
@@ -269,19 +267,15 @@
       //var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
       //$(lang_active).addClass('active');
 
-      init_nightmode();
+      //init_nightmode();
 
     });
   });
-
-
 
   function change_language(lang) {
       post_lang.value = lang;
       language_form.submit();
   }
-
-
 </script>
 
 

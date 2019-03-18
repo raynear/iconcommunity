@@ -4,6 +4,8 @@ from el_pagination.decorators import page_template
 
 
 def collateral(request):
+    if 'nightmode' not in request.session:
+        request.session['nightmode'] = False
     return render(request, 'resources/collateral.html', {'nightmode': request.session['nightmode']})
 
 
@@ -20,6 +22,8 @@ def press2(request):
 @page_template('resources/news_page.html', key='news_page')
 @page_template('resources/press_page.html', key='press_page')
 def press(request, template='resources/press.html', extra_context=None):
+    if 'nightmode' not in request.session:
+        request.session['nightmode'] = False
     context = {
         'news': News.objects.all().order_by('-news_date'),
         'presses': Press.objects.all().order_by('-press_date'),

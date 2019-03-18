@@ -11,7 +11,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('update_session/', views.update_session, name='update_session'),
     path('toggle_nightmode/', views.toggle_nightmode, name='toggle_nightmode'),
-    path('init_nightmode/', views.init_nightmode, name='init_nightmode')
+    #path('init_nightmode/', views.init_nightmode, name='init_nightmode')
 ]
 
 if settings.DEBUG:
