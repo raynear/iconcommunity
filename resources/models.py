@@ -13,7 +13,6 @@ class News(models.Model):
     news_display = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    #publish_on = models.DateField()
 
     def __str__(self):
         return self.news_title
@@ -28,3 +27,26 @@ class Press(models.Model):
 
     def __str__(self):
         return self.press_title
+
+
+class VideoEvents(models.Model):
+    video_events_title = models.CharField(max_length=2000, default='')
+    video_events_link = models.URLField(max_length=2000, default='')
+    video_events_date = models.DateField(_("Date"), default=datetime.date.today)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.video_events_title
+
+
+class VideoInterviews(models.Model):
+    video_interviews_title = models.CharField(max_length=2000, default='')
+    video_interviews_link = models.URLField(max_length=2000, default='')
+    video_interviews_date = models.DateField(_("Date"), default=datetime.date.today)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.video_interviews_title
+
