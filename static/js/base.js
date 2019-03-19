@@ -3,7 +3,6 @@
 var transparent = true;
 var transparentDemo = true;
 var fixedTop = false;
-
 var navbar_initialized = false;
 var backgroundOrange = false;
 var sidebar_mini_active = false;
@@ -362,8 +361,6 @@ function hexToRGB(hex, alpha) {
     return "rgb(" + r + ", " + g + ", " + b + ")";
   }
 }
-
-
 function init_nightmode(){
   $.ajax({
         url : '/init_nightmode/',
