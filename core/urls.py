@@ -9,9 +9,8 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('resources/', include('resources.urls')),
     path('admin/', admin.site.urls),
-    #path('update_session/', views.update_session, name='update_session'),
     path('toggle_nightmode/', views.toggle_nightmode, name='toggle_nightmode'),
-    #path('init_nightmode/', views.init_nightmode, name='init_nightmode')
+    path('toggle_navbar/', views.toggle_navbar, name='toggle_navbar'),
 ]
 
 if settings.DEBUG:

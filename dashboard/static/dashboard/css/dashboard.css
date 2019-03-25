@@ -106,3 +106,9 @@ li{ list-style:none; }
 
 .card-body li{display: inline-block;    vertical-align: top;}
 .card-body .subTitle{font-size: 28px; font-weight: 800;}
+
+@media screen and (max-width: 600px){
+    .card-body .subTitle{font-size: 20px; font-weight: 800;}
+    .card-body .content li p:last-child{font-size: 26px; font-weight: 700;}
+    .card-body .content li p:last-child em{font-size: 20px; margin-right: 13px; font-weight: 500;}
+}

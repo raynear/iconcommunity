@@ -22,7 +22,7 @@
 </head>
 
 
-<body class="{% if nightmode == True %} {% else %} white-content {% endif %}"><!-- sidebar-mini -->
+<body class="{% if nightmode == True %} {% else %} white-content {% endif %} {% if navbar == True %} {% else %} sidebar-mini {% endif %}">
 
 {% get_current_language as LANGUAGE_CODE %}
 

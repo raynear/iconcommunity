@@ -261,6 +261,9 @@ var base = {
 
     $('.minimize-sidebar').click(function() {
 
+      toggle_navbar();
+
+
       if (sidebar_mini_active == true) {
         $body.removeClass('sidebar-mini');
         sidebar_mini_active = false;
@@ -270,6 +273,7 @@ var base = {
         sidebar_mini_active = true;
         base.showSidebarMessage('Sidebar mini activated...');
       }
+
 
       // we simulate the window Resize so the charts will get updated in realtime.
       var simulateWindowResize = setInterval(function() {
@@ -344,7 +348,7 @@ var base = {
         }
       });
     } catch (e) {
-      console.log('Notify library is missing, please make sure you have the notifications library added.');
+      //console.log('Notify library is missing, please make sure you have the notifications library added.');
     }
 
   }
@@ -396,5 +400,30 @@ function set_nightmode(mode){
     $('#moon').find('i').removeClass('fas fa-moon');
     $('#moon').find('i').addClass('far fa-moon');
     $('body').addClass('white-content');
+  }
+}
+
+function toggle_navbar(){
+  $.ajax({
+        url : '/toggle_navbar/',
+        type: "POST",
+        data : {csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value},
+        dataType : "json",
+        success: function(data){
+          set_navbar(data.navbar);
+        },
+        error: function(message) {
+          //console.log(message.responseText)
+        }
+  });
+}
+
+function set_navbar(mode){
+  if (mode) {
+    $body.removeClass('sidebar-mini');
+    sidebar_mini_active = false;
+  } else {
+    $body.addClass('sidebar-mini');
+    sidebar_mini_active = true;
   }
 }
