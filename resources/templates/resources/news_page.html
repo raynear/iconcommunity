@@ -1,7 +1,7 @@
 {% load el_pagination_tags %}
 <div class="card-body">
   <div class="row">
-    {% paginate 4 news using "news_page" %}
+    {% paginate 8 news using "news_page" %}
     {% for new in news %}
     <div class="col-md-3 mb-3">
       <a href="{{ new.news_link }}" target="_blank">

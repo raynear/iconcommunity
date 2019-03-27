@@ -1,7 +1,7 @@
 {% load el_pagination_tags %}
 <div class="card-body">
   <div class="row">
-    {% paginate 4 presses using "press_page" %}
+    {% paginate 8 presses using "press_page" %}
     {% for press in presses %}
     <div class="col-md-3 mb-3">
       <p><h4><a href="{{ press.press_link }}" target="_blank">{{ press.press_title }}</a></h4></p>
