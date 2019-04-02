@@ -19,6 +19,7 @@ INSTALLED_APPS = [
 
     'dashboard',
     'resources',
+    'developers',
     'el_pagination',
 ]
 

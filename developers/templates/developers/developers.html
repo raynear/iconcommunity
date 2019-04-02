@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link href="{% static 'dashboard/css/developers.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block title %}Developers{% endblock %}
+{% block section %}Developers{% endblock %}
+
+{% block content %}
+
+{% load el_pagination_tags %}
+  <h3 class="title mt-5">Tutorials</h3>
+
+  <!-- Blog Tutorial -->
+  <h3 class="mt-5">Blog Tutorial</h3>
+  <div class="endless_page_template">
+      {% include "developers/blog_tutorial_page.html" %}
+  </div>
+
+  <br><br>
+
+  <!-- Video Tutorial -->
+  <h3 class="mt-5">Video Tutorial</h3>
+  <!--
+  <div class="endless_page_template">
+      {% include "resources/press_page.html" %}
+  </div>
+  -->
+{% endblock %}
+
+{% block extra_js %}
+  <script>
+    $(document).ready(function() {
+        $('.nav > li').each(function() {
+          if($(this).find('p').text() == document.title)
+            $(this).addClass('active');
+        });
+    });
+
+  </script>
+{% endblock %}

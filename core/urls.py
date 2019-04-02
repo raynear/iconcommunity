@@ -8,6 +8,7 @@ urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     path('dashboard/', include('dashboard.urls')),
     path('resources/', include('resources.urls')),
+    path('developers/', include('developers.urls')),
     path('admin/', admin.site.urls),
     path('toggle_nightmode/', views.toggle_nightmode, name='toggle_nightmode'),
     path('toggle_navbar/', views.toggle_navbar, name='toggle_navbar'),
