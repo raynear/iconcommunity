@@ -1,0 +1,20 @@
+{% load el_pagination_tags %}
+<div class="card-body">
+  <div class="row">
+    {% paginate 3 video_tutorials using "video_tutorial_page" %}
+    {% for video_tutorial in video_tutorials %}
+    <div class="col-md-4 mb-3">
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe class="embed-responsive-item" src="{{ video_tutorial.video_tutorial_link }}"></iframe>
+      </div>
+      <p><h4>{{ video_tutorial.video_tutorial_title }}</h4></p>
+      <p><h5>{{ video_tutorial.video_tutorial_date }}</h5></p>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="text-center">
+    <div class="pagination">
+      {% show_pages %}
+    </div>
+  </div>
+</div>
