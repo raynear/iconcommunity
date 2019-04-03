@@ -3,8 +3,8 @@ from .models import BlogTutorial, VideoTutorial
 from el_pagination.decorators import page_template
 
 
-@page_template('resources/blog_tutorial_page.html', key='news_page')
-@page_template('resources/video_tutorial_page.html', key='news_page')
+@page_template('resources/blog_tutorial_page.html', key='blog_tutorial_page')
+@page_template('resources/video_tutorial_page.html', key='video_tutorial_page')
 def developers(request, template='developers/developers.html', extra_context=None):
     if 'nightmode' not in request.session:
         request.session['nightmode'] = False
