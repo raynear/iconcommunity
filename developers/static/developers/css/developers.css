@@ -15,7 +15,7 @@ h3.mt-5 {
 }
 
 .sidebar .nav li.active > a:not([data-toggle="collapse"]):before, .off-canvas-sidebar .nav li.active > a:not([data-toggle="collapse"]):before {
-  top: 18px !important;
+  top: 22px !important;
 }
 
 li.active span {
@@ -64,4 +64,10 @@ li.active span {
 .pagination a:last-child {
   border-top-right-radius: 5px;
   border-bottom-right-radius: 5px;
+}
+
+.blog-tutorial-img {
+  min-height: 260px;
+  width: 100%;
+  object-fit: contain;
 }
