@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'dashboard',
+    'iconsensus',
     'resources',
     'developers',
     'el_pagination',

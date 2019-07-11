@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block extra_head %}
+  <link href="{% static 'iconsensus/css/iconsensus.css' %}" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
+  <style type="text/css">
+
+    .white-content .bpimg {content: url({% static 'iconsensus/img/bp.png' %});}
+    .bpimg {content: url({% static 'iconsensus/img/bpinvert.png' %});}
+
+    .white-content .governanceimg {content: url({% static 'iconsensus/img/governance.png' %});}
+    .governanceimg {content: url({% static 'iconsensus/img/governanceinvert.png' %});}
+
+    .white-content .contribimg {content: url({% static 'iconsensus/img/contrib.png' %});}
+    .contribimg {content: url({% static 'iconsensus/img/contribinvert.png' %});}
+
+    .white-content .securityimg {content: url({% static 'iconsensus/img/security.png' %});}
+    .securityimg {content: url({% static 'iconsensus/img/securityinvert.png' %});}
+
+    .white-content .rowcolor1 {background-color: rgb(234, 232, 225);}
+    .white-content .rowcolor2 {background-color: rgb(235, 236, 240);}
+    .white-content .rowcolor3 {background-color: rgb(239, 238, 234);}
+    .white-content .rowcolor4 {background-color: rgb(231, 235, 236);}
+
+    .rowcolor1 {background-color: #212529}
+    .rowcolor2 {background-color: #182029}
+    .rowcolor3 {background-color: #212529}
+    .rowcolor4 {background-color: #182029}
+
+    .white-content .vearnimg { content: url({% static 'iconsensus/img/vearn_reward.png' %}); }
+    .white-content .vgovernanceimg { content: url({% static 'iconsensus/img/vgovernance.png' %}); }
+    .white-content .vcommunityimg { content: url({% static 'iconsensus/img/vcommunity.png' %}); }
+    .white-content .vicongressimg { content: url({% static 'iconsensus/img/vicongress.png' %}); }
+
+    .vearnimg { content: url({% static 'iconsensus/img/vearn_rewardinvert.png' %}); }
+    .vgovernanceimg { content: url({% static 'iconsensus/img/vgovernanceinvert.png' %}); }
+    .vcommunityimg { content: url({% static 'iconsensus/img/vcommunityinvert.png' %}); }
+    .vicongressimg { content: url({% static 'iconsensus/img/vicongressinvert.png' %}); }
+
+
+  </style>
+{% endblock %}
+{% block title %}About{% endblock %}
+{% block section %}About{% endblock %}
+{% block content %}
+
+  <main>
+
+    <!-- SECTION 4 CIRCLES -->
+    <section class="content pb-5">
+      <div class="container">
+        <h1 class="text-center mb-2 mt-5" style="line-height:42px;">{% trans '100 Public Representatives <br>Of the ICON Network' %}</h1><br>
+        <div class="offset-md-2 col-md-8 mb-5">
+          <p class="lead notofont">
+            {% trans '100 Public Representatives (P-Reps) are elected for the ICON Network by delegation of ICONists. Top ranked 22 main P-Reps will participate in block production, verification and making governance decisions. 200,000 ICONists are waiting to vote for eligible P-Rep candidates to boost the ICON ecosystem.' %}
+          </p>
+        </div>
+        <br>
+
+        <div class="row">
+          <div class="col-lg-3 text-center">
+            <div class="bpimg mx-auto d-block" style="width:140px; height:140px;"></div>
+            <br>
+            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Block Production and Verification' %}</h6>
+            <br>
+          </div>
+          <div class="col-lg-3 text-center">
+            <div class="governanceimg mx-auto d-block" style="width:140px; height:140px;"></div>
+            <br>
+            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Governance and monetary policy decision making' %}</h6>
+            <br>
+          </div>
+          <div class="col-lg-3 text-center">
+            <div class="contribimg mx-auto d-block" style="width:140px; height:140px;"></div>
+            <br>
+            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'On-chain, Off-chain contributions' %}</h6>
+            <br>
+          </div>
+          <div class="col-lg-3 text-center">
+            <div class="securityimg mx-auto d-block" style="width:140px; height:140px;"></div>
+            <br>
+            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Network Security' %}</h6><br>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <h4 class="notofont">{% trans 'Learn more ' %}<a
+              href="http://13.209.9.59:8080/download/Introduction_for_Public_Representative_of_ICON_Network_KO_V1.0.pdf"
+              target="_blank" style="color: #1aaaba;">{% trans 'Guide for Public Representative' %}</a></h4>
+        </div>
+        <br>
+      </div>
+    </section>
+
+    <!-- LEFT & RIGHT -->
+    <section class="content pb-5">
+      <div class="container">
+
+        <div class="row">
+          <div class="rowcolor1 col-md-8 p-5">
+            <div class="offset-md-1 col-md-9">
+              <h1 class="mt-4 mb-3" style="line-height:42px;">{% trans 'Earn Representative <br>Rewards' %}</h1>
+              <span class="lead notofont">{% trans 'P-Reps will receive rewards for block production and verification, as well as receiving Representative Reward being ranked in the top 100. More contribution, higher the rewards for the P-Reps.' %}</span>
+            </div>
+          </div>
+          <div class="rowcolor1 col-md-3 p-4 d-flex flex-wrap align-items-center">
+            <div class="vearnimg" style="width: 100%;"></div>
+          </div>
+          <div class="rowcolor1 col-md-1"></div>
+        </div>
+
+        <div class="row">
+          <div class="rowcolor2 col-md-1"></div>
+          <div class="rowcolor2 col-md-8 order-md-2 p-5">
+            <div class="offset-md-2 col-md-9">
+              <h1 class="mt-4 mb-3" style="line-height:42px;">{% trans 'Shape the Governance of ICON Network'　 %}</h1>
+              <p class="lead notofont">{% trans 'ICON Network is a platform with high potential values with built-in on-chain systems such as  Ecosystem Expansion Project (EEP), DApp Booster Program (DBP) and Interchain Technology to connect heterogeneous blockchains. P-Reps will provide these features and lead the initial network growth while deciding governance of each fundamental components of the ICON Network.' %}</p>
+            </div>
+          </div>
+          <div class="rowcolor2 col-md-3 p-4 d-flex flex-wrap align-items-center order-md-1">
+            <div class="vgovernanceimg" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="rowcolor3 col-md-8 p-5">
+            <div class="offset-md-1 col-md-9">
+              <h1 class="mt-4 mb-3" style="line-height:42px;">{% trans 'Global Audience Through ICON Community' %}</h1>
+              <p class="lead notofont">{% trans 'ICON Community is a world-wide spread community that boasts nearly 200K active members. Register as a P-Rep candidate, promote your profile to the community, and accomplish your ambitions in the blockchain space.' %}</p>
+            </div>
+          </div>
+          <div class="rowcolor3 col-md-3 p-4 d-flex flex-wrap align-items-center">
+            <div class="vcommunityimg" style="width: 100%;"></div>
+          </div>
+          <div class="rowcolor3 col-md-1"></div>
+        </div>
+
+        <div class="row">
+          <div class="rowcolor4 col-md-1"></div>
+          <div class="rowcolor4 col-md-8 order-md-2 p-5">
+            <div class="offset-md-2 col-md-9">
+              <h1 class="mt-4 mb-3" style="line-height:42px;">{% trans 'Achieve Your Vision Through ICONgress' %}</h1>
+              <p class="lead notofont">{% trans 'ICONgress is an off-chain governance body of the ICON Network. Key roles from various ICON sectors will discuss about long-term strategy and governance of the ICON Network. Become a prestigious member of ICONgress and drive ICON growth initiatives!' %}</p>
+            </div>
+          </div>
+          <div class="rowcolor4 col-md-3 p-4 order-md-1 d-flex flex-wrap align-items-center">
+            <div class="vicongressimg" style="width: 100%;"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="content pt-5 pb-0">
+      <div class="container">
+        <h1 class="text-center mb-2" style="line-height:42px;">{% trans 'Frequently Asked Questions' %}</h1><br>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/MWElxwfql0Y?rel=0" allowfullscreen></iframe>
+        </div>
+        <br><br><br><br><br>
+        <h1 class="text-center" style="line-height:42px;">{% trans '“ICONSENSUS, the Journey<br> Toward Mass Adoption”' %}</h1>
+        <div class="offset-md-2 col-md-8">
+          <p class="lead notofont"> {% trans 'The ICON Network is now standing at a pivotal moment to evolve to a truly decentralized network and realizing mass adoption. This begins with ICONSENSUS, a journey consisted of a series of election milestones of P-Rep, C-Rep, DBP, and EEP.' %}</p>
+          <p class="lead notofont text-center">
+            <b>{% trans 'Become a genesis Public Representative, and make a new history with us.' %}</b></p>
+        </div>
+        <br><br>
+        <img src="{% static "iconsensus/img/graph2_190321.png" %}" class="rounded mx-auto d-block">
+        <br>
+      </div>
+    </section>
+
+
+  </main>
+
+{% endblock %}
+
+{% block extra_js %}
+  <!-- toggle active class for nav, put to common js -->
+  <script>
+      $(document).ready(function () {
+          $('.nav > li').each(function () {
+              if ($(this).parent().parent().parent().is('li'))
+                  $(this).parent().parent().collapse();
+              ($(this).find('span.section')).each(function () {
+                  if ($(this).text() == document.title)
+                      $(this).parent().parent().addClass('active');
+              });
+          });
+      });
+  </script>
+{% endblock %}

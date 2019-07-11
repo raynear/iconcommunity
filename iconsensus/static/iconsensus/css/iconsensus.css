@@ -1,0 +1,30 @@
+/* Font */
+h1 {
+    font-family: 'Montserrat';
+    font-weight: 700;
+}
+
+.white-content .lead {
+    font-size: 18px;
+    font-weight: 500;
+    color: #666666!important;
+}
+
+.lead {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5)!important;
+}
+
+.notofont {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+/* Night Mode */
+.white-content h6 {
+    color: #333333!important;
+}
+
+h6 {
+    color: rgba(255,255,255,0.7)!important;
+}

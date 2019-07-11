@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800" rel="stylesheet"/>
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
   <!-- CSS -->
@@ -22,7 +22,8 @@
 </head>
 
 
-<body class="{% if nightmode == True %} {% else %} white-content {% endif %} {% if navbar == True %} {% else %} sidebar-mini {% endif %}">
+<body
+    class="{% if nightmode == True %} {% else %} white-content {% endif %} {% if navbar == True %} {% else %} sidebar-mini {% endif %}">
 
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -44,6 +45,7 @@
         </a>
       </div>
       <ul class="nav">
+        <!-- Dashboard -->
         <li>
           <a href="/dashboard/">
             <i class="tim-icons"><img src="{% static 'logo/pie.png' %}" width="22" height="22"
@@ -51,13 +53,25 @@
             <p>Dashboard</p>
           </a>
         </li>
+        <!-- ICONSENSUS -->
         <li>
-          <a href="https://icon.community/iconsensus/" target="_blank">
+          <a data-toggle="collapse" href="#iconsensusSub">
             <i class="tim-icons"><img src="{% static 'logo/iconsensus.png' %}" width="27" height="27"
                                       style="margin-top: -10px; margin-left: -5px;"></i>
-            <p>ICONSENSUS</p>
+            <p>ICONSENSUS <b class="caret"></b></p>
           </a>
+          <div class="collapse" id="iconsensusSub">
+            <ul class="nav">
+              <li>
+                <a href="/iconsensus/about/">
+                  <span class="sidebar-mini-icon">A</span>
+                  <span class="sidebar-normal section">About</span>
+                </a>
+              </li>
+            </ul>
+          </div>
         </li>
+        <!-- Forum -->
         <li>
           <a href="https://forum.icon.community/" target="_blank">
             <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24"
@@ -65,6 +79,7 @@
             <p>Forum</p>
           </a>
         </li>
+        <!-- Resource -->
         <li>
           <a data-toggle="collapse" href="#resourceSub">
             <i class="tim-icons"><img src="{% static 'logo/resources.png' %}" width="26" height="26"
@@ -88,6 +103,7 @@
             </ul>
           </div>
         </li>
+        <!-- Developer -->
         <li>
           <a href="/developers/">
             <i class="tim-icons"><img src="{% static 'logo/developers.png' %}" width="24" height="24"
@@ -132,15 +148,16 @@
 
             <!-- language redirect -->
             <form id="language_form" action="{% url 'set_language' %}" method="post">{% csrf_token %}
-            {% get_current_language as LANGUAGE_CODE %}
-            <input name="next" type="hidden" value="{{ redirect_to }}">
-            <input id="post_lang" name="language" value="{{ LANGUAGE_CODE }}" type="hidden">
+              {% get_current_language as LANGUAGE_CODE %}
+              <input name="next" type="hidden" value="{{ redirect_to }}">
+              <input id="post_lang" name="language" value="{{ LANGUAGE_CODE }}" type="hidden">
             </form>
 
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang {% if LANGUAGE_CODE == 'en' %}active{% endif %}" href="javascript:void(0)" onclick="change_language('en');">EN</a>
+                <a class="nav-lang {% if LANGUAGE_CODE == 'en' %}active{% endif %}" href="javascript:void(0)"
+                   onclick="change_language('en');">EN</a>
               </a>
             </li>
 
@@ -149,14 +166,16 @@
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a class="nav-lang {% if LANGUAGE_CODE == 'ko' %}active{% endif %}" href="javascript:void(0)" onclick="change_language('ko');">KR</a>
+                <a class="nav-lang {% if LANGUAGE_CODE == 'ko' %}active{% endif %}" href="javascript:void(0)"
+                   onclick="change_language('ko');">KR</a>
               </a>
             </li>
 
             <li class="nav-item ml-auto">
               <a href="javascript:void(0)" class="nav-link" aria-expanded="false">
                 <div class="d-none d-lg-block d-xl-block"></div>
-                <a id="moon" onclick="toggle_nightmode();"><i class="{% if nightmode == True %} fas fa-moon {% else %} far fa-moon {% endif %}"></i></a>
+                <a id="moon" onclick="toggle_nightmode();"><i
+                    class="{% if nightmode == True %} fas fa-moon {% else %} far fa-moon {% endif %}"></i></a>
               </a>
             </li>
 
@@ -178,7 +197,7 @@
         <div class="copyright">
           ©
           <script>
-            document.write(new Date().getFullYear())
+              document.write(new Date().getFullYear())
           </script>
           icon.community
         </div>
@@ -196,93 +215,93 @@
 
 <script>
 
-  $(document).ready(function () {
-    $().ready(function () {
-      $sidebar = $('.sidebar');
-      $navbar = $('.navbar');
-      $main_panel = $('.main-panel');
-      $full_page = $('.full-page');
-      $sidebar_responsive = $('body > .navbar-collapse');
-      sidebar_mini_active = false;
-      white_color = true;
-      window_width = $(window).width();
+    $(document).ready(function () {
+        $().ready(function () {
+            $sidebar = $('.sidebar');
+            $navbar = $('.navbar');
+            $main_panel = $('.main-panel');
+            $full_page = $('.full-page');
+            $sidebar_responsive = $('body > .navbar-collapse');
+            sidebar_mini_active = false;
+            white_color = true;
+            window_width = $(window).width();
 
-      $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
-        var $btn = $(this);
+            $('.switch-sidebar-mini input').on("switchChange.bootstrapSwitch", function () {
+                var $btn = $(this);
 
-        if (sidebar_mini_active == true) {
-          $('body').removeClass('sidebar-mini');
-          sidebar_mini_active = false;
-          //blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
-        } else {
-          $('body').addClass('sidebar-mini');
-          sidebar_mini_active = true;
-          //blackDashboard.showSidebarMessage('Sidebar mini activated...');
-        }
+                if (sidebar_mini_active == true) {
+                    $('body').removeClass('sidebar-mini');
+                    sidebar_mini_active = false;
+                    //blackDashboard.showSidebarMessage('Sidebar mini deactivated...');
+                } else {
+                    $('body').addClass('sidebar-mini');
+                    sidebar_mini_active = true;
+                    //blackDashboard.showSidebarMessage('Sidebar mini activated...');
+                }
 
-        // we simulate the window Resize so the charts will get updated in realtime.
-        var simulateWindowResize = setInterval(function () {
-          window.dispatchEvent(new Event('resize'));
-        }, 180);
+                // we simulate the window Resize so the charts will get updated in realtime.
+                var simulateWindowResize = setInterval(function () {
+                    window.dispatchEvent(new Event('resize'));
+                }, 180);
 
-        // we stop the simulation of Window Resize after the animations are completed
-        setTimeout(function () {
-          clearInterval(simulateWindowResize);
-        }, 1000);
-      });
+                // we stop the simulation of Window Resize after the animations are completed
+                setTimeout(function () {
+                    clearInterval(simulateWindowResize);
+                }, 1000);
+            });
 
-      $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
-        var $btn = $(this);
+            $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
+                var $btn = $(this);
 
-        if (white_color == true) {
+                if (white_color == true) {
 
-          $('body').addClass('change-background');
-          setTimeout(function () {
-            $('body').removeClass('change-background');
-            $('body').removeClass('white-content');
-          }, 900);
-          white_color = false;
-        } else {
+                    $('body').addClass('change-background');
+                    setTimeout(function () {
+                        $('body').removeClass('change-background');
+                        $('body').removeClass('white-content');
+                    }, 900);
+                    white_color = false;
+                } else {
 
-          $('body').addClass('change-background');
-          setTimeout(function () {
-            $('body').removeClass('change-background');
-            $('body').addClass('white-content');
-          }, 900);
+                    $('body').addClass('change-background');
+                    setTimeout(function () {
+                        $('body').removeClass('change-background');
+                        $('body').addClass('white-content');
+                    }, 900);
 
-          white_color = true;
-        }
-      });
+                    white_color = true;
+                }
+            });
 
-      $('.light-badge').click(function () {
-        $('body').addClass('white-content');
-      });
+            $('.light-badge').click(function () {
+                $('body').addClass('white-content');
+            });
 
-      $('.dark-badge').click(function () {
-        $('body').removeClass('white-content');
-      });
+            $('.dark-badge').click(function () {
+                $('body').removeClass('white-content');
+            });
 
-      // toggle language
-      /*
-      $('.nav-lang').click(function () {
-        $('.nav-lang.active').not(this).removeClass('active');
-        $(this).toggleClass('active');
-      })
-      */
+            // toggle language
+            /*
+            $('.nav-lang').click(function () {
+              $('.nav-lang.active').not(this).removeClass('active');
+              $(this).toggleClass('active');
+            })
+            */
 
 
-      //var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
-      //$(lang_active).addClass('active');
+            //var lang_active = ".nav-lang"+".{{ LANGUAGE_CODE }}";
+            //$(lang_active).addClass('active');
 
-      //init_nightmode();
+            //init_nightmode();
 
+        });
     });
-  });
 
-  function change_language(lang) {
-      post_lang.value = lang;
-      language_form.submit();
-  }
+    function change_language(lang) {
+        post_lang.value = lang;
+        language_form.submit();
+    }
 </script>
 
 
