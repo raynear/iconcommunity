@@ -30,6 +30,8 @@ def collateral(request, template='resources/collateral.html', extra_context=None
         'video_interviews': video_interviews,
         'nightmode': request.session['nightmode'],
         'navbar': request.session['navbar'],
+        'section': 'RESOURCES',
+        'subsection': 'COLLATERAL',
     }
     if extra_context is not None:
         context.update(extra_context)
@@ -48,6 +50,8 @@ def press(request, template='resources/press.html', extra_context=None):
         'presses': Press.objects.all().order_by('-press_date'),
         'nightmode': request.session['nightmode'],
         'navbar': request.session['navbar'],
+        'section': 'RESOURCES',
+        'subsection': 'PRESS',
     }
     if extra_context is not None:
         context.update(extra_context)

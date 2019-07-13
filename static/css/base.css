@@ -200,8 +200,8 @@ table {
   border-collapse: collapse; }
 
 caption {
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 2rem;
+  /*padding-bottom: 1rem;*/
   color: #6c757d;
   text-align: left;
   caption-side: bottom; }
@@ -11852,8 +11852,8 @@ hr {
 .table > tbody > tr > td {
   color: rgba(255, 255, 255, 0.7) !important; }
   .table > tbody > tr > td .photo {
-    height: 30px;
-    width: 30px;
+    height: 50px;
+    width: 50px;
     border-radius: 50%;
     overflow: hidden;
     margin: 0 auto; }
@@ -12015,22 +12015,10 @@ hr {
 
 .table-responsive {
   overflow: scroll;
-  padding-bottom: 10px; }
+  /*padding-bottom: 10px;*/ }
 
 #tables .table-responsive {
   margin-bottom: 30px; }
-
-table.tablesorter thead tr .header {
-  background-image: url("../img/bg.gif");
-  background-repeat: no-repeat;
-  background-position: center right;
-  cursor: pointer; }
-
-table.tablesorter thead tr .headerSortUp {
-  background-image: url("../img/asc.gif"); }
-
-table.tablesorter thead tr .headerSortDown {
-  background-image: url("../img/desc.gif"); }
 
 .dataTables_wrapper .table-striped tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05); }

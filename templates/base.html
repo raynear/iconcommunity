@@ -21,9 +21,7 @@
 
 </head>
 
-
-<body
-    class="{% if nightmode == True %} {% else %} white-content {% endif %} {% if navbar == True %} {% else %} sidebar-mini {% endif %}">
+<body class="{% if nightmode == True %} {% else %} white-content {% endif %} {% if navbar == True %} {% else %} sidebar-mini {% endif %}">
 
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -37,64 +35,69 @@
   <div class="sidebar">
     <div class="sidebar-wrapper">
       <div class="logo">
-        <a href="javascript:void(0)" class="simple-text logo-mini"><img src="{% static 'logo/ic.png' %}" width="26"
-                                                                        height="26"
-                                                                        style="margin-top: 0px; margin-left: 3px;"></a>
+        <a href="javascript:void(0)" class="simple-text logo-mini">
+          <img src="{% static 'logo/ic.png' %}" width="26" height="26" style="margin-top: 0px; margin-left: 3px;">
+        </a>
         <a href="javascript:void(0)" class="simple-text logo-normal">
           icon.community
         </a>
       </div>
+
       <ul class="nav">
+
         <!-- Dashboard -->
-        <li>
+        <li {% if section == 'DASHBOARD' %}class="active"{% endif %}>
           <a href="/dashboard/">
-            <i class="tim-icons"><img src="{% static 'logo/pie.png' %}" width="22" height="22"
-                                      style="margin-top: -10px; margin-left: -5px;"></i>
+            <i class="tim-icons">
+              <img src="{% static 'logo/pie.png' %}" width="22" height="22" style="margin-top: -10px; margin-left: -5px;">
+            </i>
             <p>Dashboard</p>
           </a>
         </li>
+
         <!-- ICONSENSUS -->
-        <li>
+        <li {% if section == 'ICONSENSUS' %}class="active"{% endif %}>
           <a data-toggle="collapse" href="#iconsensusSub">
-            <i class="tim-icons"><img src="{% static 'logo/iconsensus.png' %}" width="27" height="27"
-                                      style="margin-top: -10px; margin-left: -5px;"></i>
+            <i class="tim-icons">
+              <img src="{% static 'logo/iconsensus.png' %}" width="27" height="27" style="margin-top: -10px; margin-left: -5px;">
+            </i>
             <p>ICONSENSUS <b class="caret"></b></p>
           </a>
-          <div class="collapse" id="iconsensusSub">
+          <div class="collapse {% if section == 'ICONSENSUS' %}show{% endif %}" id="iconsensusSub">
             <ul class="nav">
-              <li>
+              <li {% if subsection == 'ABOUT' %}class="active"{% endif %}>
                 <a href="/iconsensus/about/">
                   <span class="sidebar-mini-icon">A</span>
                   <span class="sidebar-normal section">About</span>
                 </a>
               </li>
+              <li {% if subsection == 'CANDIDATES' %}class="active"{% endif %}>
+                <a href="/iconsensus/candidates/">
+                  <span class="sidebar-mini-icon">P</span>
+                  <span class="sidebar-normal section">P-Rep Candidates</span>
+                </a>
+              </li>
             </ul>
           </div>
         </li>
-        <!-- Forum -->
-        <li>
-          <a href="https://forum.icon.community/" target="_blank">
-            <i class="tim-icons"><img src="{% static 'logo/forum.png' %}" width="24" height="24"
-                                      style="margin-top: -10px; margin-left: -4px;"></i>
-            <p>Forum</p>
-          </a>
-        </li>
-        <!-- Resource -->
-        <li>
+
+        <!-- Resources -->
+        <li {% if section == 'RESOURCES' %}class="active"{% endif %}>
           <a data-toggle="collapse" href="#resourceSub">
-            <i class="tim-icons"><img src="{% static 'logo/resources.png' %}" width="26" height="26"
-                                      style="margin-top: -10px; margin-left: -6px;"></i>
+            <i class="tim-icons">
+              <img src="{% static 'logo/resources.png' %}" width="26" height="26" style="margin-top: -10px; margin-left: -6px;">
+            </i>
             <p>Resources <b class="caret"></b></p>
           </a>
-          <div class="collapse" id="resourceSub">
+          <div class="collapse {% if section == 'RESOURCES' %}show{% endif %}" id="resourceSub">
             <ul class="nav">
-              <li>
+              <li {% if subsection == 'COLLATERAL' %}class="active"{% endif %}>
                 <a href="/resources/collateral/">
                   <span class="sidebar-mini-icon">C</span>
                   <span class="sidebar-normal section">Collateral</span>
                 </a>
               </li>
-              <li>
+              <li {% if subsection == 'PRESS' %}class="active"{% endif %}>
                 <a href="/resources/press/">
                   <span class="sidebar-mini-icon">P</span>
                   <span class="sidebar-normal section">Press</span>
@@ -103,20 +106,34 @@
             </ul>
           </div>
         </li>
-        <!-- Developer -->
-        <li>
+
+        <!-- Developers -->
+        <li {% if section == 'DEVELOPERS' %}class="active"{% endif %}>
           <a href="/developers/">
-            <i class="tim-icons"><img src="{% static 'logo/developers.png' %}" width="24" height="24"
-                                      style="margin-top: -10px; margin-left: -6px;"></i>
+            <i class="tim-icons">
+              <img src="{% static 'logo/developers.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -6px;">
+            </i>
             <p>Developers</p>
           </a>
         </li>
+
+        <!-- Forum -->
+        <li>
+          <a href="https://forum.icon.community/" target="_blank">
+            <i class="tim-icons">
+              <img src="{% static 'logo/forum.png' %}" width="24" height="24" style="margin-top: -10px; margin-left: -4px;">
+            </i>
+            <p>Forum</p>
+          </a>
+        </li>
+
       </ul>
+
     </div>
   </div>
-  <div class="main-panel">
-    <!-- Navbar -->
 
+  <div class="main-panel">
+    <!-- TOP NAV -->
     <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
       <div class="container-fluid">
         <div class="navbar-wrapper">
@@ -187,11 +204,13 @@
       </div>
     </nav>
 
-    <!-- End Navbar -->
+    <!-- MAIN CONTENT BLOCK -->
     <div class="content">
       {% block content %}
       {% endblock %}
     </div>
+
+    <!-- FOOTER -->
     <footer class="footer">
       <div class="container-fluid">
         <div class="copyright">
@@ -204,6 +223,7 @@
       </div>
     </footer>
   </div>
+
 </div>
 <!--   Core JS Files   -->
 <script src="{% static 'js/core/jquery.min.js' %}"></script>
@@ -250,6 +270,7 @@
                 }, 1000);
             });
 
+            /*
             $('.switch-change-color input').on("switchChange.bootstrapSwitch", function () {
                 var $btn = $(this);
 
@@ -280,6 +301,7 @@
             $('.dark-badge').click(function () {
                 $('body').removeClass('white-content');
             });
+            */
 
             // toggle language
             /*

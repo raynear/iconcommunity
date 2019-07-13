@@ -25,6 +25,7 @@ def developers(request, template='developers/developers.html', extra_context=Non
         'video_presentations': video_presentations,
         'nightmode': request.session['nightmode'],
         'navbar': request.session['navbar'],
+        'section': 'DEVELOPERS',
     }
     if extra_context is not None:
         context.update(extra_context)

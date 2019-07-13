@@ -101,19 +101,6 @@
 {% endblock %}
 
 {% block extra_js %}
-  <!-- toggle active class for nav, put to common js -->
-  <script>
-    $(document).ready(function () {
-      $('.nav > li').each(function () {
-        if ($(this).parent().parent().parent().is('li'))
-          $(this).parent().parent().collapse();
-        ($(this).find('span.section')).each(function () {
-          if ($(this).text() == document.title)
-            $(this).parent().parent().addClass('active');
-        });
-      });
-    });
-  </script>
   <script src="{% static 'el-pagination/js/el-pagination.js' %}"></script>
   <script>$.endlessPaginate();</script>
 {% endblock %}

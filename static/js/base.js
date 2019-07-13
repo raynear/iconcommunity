@@ -103,15 +103,19 @@ $(document).ready(function() {
   });
 
   //  Activate the Tooltips
+  /*
   $('[data-toggle="tooltip"], [rel="tooltip"]').tooltip();
+  */
 
   // Activate Popovers and set color for popovers
+  /*
   $('[data-toggle="popover"]').each(function() {
     color_class = $(this).data('color');
     $(this).popover({
       template: '<div class="popover popover-' + color_class + '" role="tooltip"><div class="arrow"></div><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
     });
   });
+  */
 
   var tagClass = $tagsinput.data('color');
 
@@ -130,11 +134,13 @@ $(document).ready(function() {
   }
 
   //when you click the modal search button the navbar will not be collapsed
+  /*
   $("#search-button").click(function() {
     $(this).closest('.navbar-collapse').removeClass('show');
     $navbar.addClass('navbar-transparent').removeClass('bg-white');
 
   });
+  */
 
   base.initMinimizeSidebar();
 
@@ -287,6 +293,7 @@ var base = {
     });
   },
 
+  /*
   startAnimationForLineChart: function(chart) {
     chart.on('draw', function(data) {
       if (data.type === 'line' || data.type === 'area') {
@@ -352,8 +359,11 @@ var base = {
     }
 
   }
+  */
+
 };
 
+/*
 function hexToRGB(hex, alpha) {
   var r = parseInt(hex.slice(1, 3), 16),
     g = parseInt(hex.slice(3, 5), 16),
@@ -375,6 +385,7 @@ function init_nightmode(){
         error: function(message) {}
   });
 }
+*/
 
 function toggle_nightmode(){
   $.ajax({

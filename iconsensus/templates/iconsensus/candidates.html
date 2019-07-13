@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block extra_head %}
+  <link href="{% static 'iconsensus/css/iconsensus.css' %}" rel="stylesheet"/>
+  <style type="text/css">
+    table.tablesorter thead tr .header {
+    background-image: url({% static 'iconsensus/img/bg.gif' %});
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer; }
+
+    table.tablesorter thead tr .headerSortUp {
+      background-image: url({% static 'iconsensus/img/asc.gif' %});
+    }
+
+    table.tablesorter thead tr .headerSortDown {
+      background-image: url({% static 'iconsensus/img/desc.gif' %});
+    }
+  </style>
+
+{% endblock %}
+{% block title %}P-Rep Candidates{% endblock %}
+{% block section %}P-Rep Candidates{% endblock %}
+{% block content %}
+
+  <div class="content">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="tools float-right">
+              <div class="dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle btn-link btn-icon" data-toggle="dropdown">
+                  <i class="tim-icons icon-settings-gear-63"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                  <a class="dropdown-item text-danger" href="#">Remove Data</a>
+                </div>
+              </div>
+            </div>
+            <h4 class="card-title">Pre-Registered P-Rep Candidates</h4>
+          </div>
+
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table tablesorter " id="prep-table">
+                <caption>{% trans 'Total of' %} {{ total }} P-Rep {% trans 'Candidates' %}</caption>
+                <thead class="text-primary">
+                <tr>
+                  <th class="logohead"></th>
+                  <th>CREATED</th>
+                  <th>NAME</th>
+                  <th>HQ</th>
+                  <th>SERVER LOCATION</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for prep in preps %}
+                  <tr>
+                    <td>
+                      <div class="photo">
+                        {% with 'iconsensus/img/'|add:prep.logo as prep_logo %}
+                        <img src="{% static prep_logo %}">
+                        {% endwith %}
+                      </div>
+                    </td>
+                    <td>{{ prep.created_at.date }}</td>
+                    <td>{{ prep.name }}</td>
+                    <td>{{ prep.location }}</td>
+                    <td>{{ prep.server_location }}</td>
+                    <td>Detail</td>
+                  </tr>
+                {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block extra_js %}
+  <script src="{% static 'js/plugins/jquery.tablesorter.js' %}"></script>
+  <script>
+    $(document).ready(function() {
+      $("#prep-table").tablesorter({
+        headers: {
+            0 : {
+                sorter: false
+            },
+            5 : {
+                sorter: false
+            }
+        }
+      });
+    });
+  </script>
+{% endblock %}

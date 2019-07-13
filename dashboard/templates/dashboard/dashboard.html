@@ -602,9 +602,7 @@
   <script src="{% static 'dashboard/js/chartjs.min.js' %}"></script>
   <script src="{% static 'dashboard/js/chart.bundle.min.js' %}"></script>
   <script src="{% static 'dashboard/js/coininfo.js' %}"></script>
-
   <script src="{% static 'dashboard/js/jquery-jvectormap.js' %}"></script>
-
   <script src="{% static 'dashboard/js/demo.js' %}"></script>
 
   <script>
@@ -612,13 +610,14 @@
         demo.initDashboardPageCharts();
         demo.initVectorMap();
 
+        /*
         $('.nav > li').each(function() {
           if($(this).find('p').text() == document.title)
             $(this).addClass('active');
         });
+        */
 
     });
-
   </script>
 
 {% endblock %}

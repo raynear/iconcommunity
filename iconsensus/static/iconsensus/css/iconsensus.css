@@ -28,3 +28,15 @@ h1 {
 h6 {
     color: rgba(255,255,255,0.7)!important;
 }
+
+/* Candidate Listing */
+.table-responsive {
+    padding: 15px;
+}
+
+.table-responsive table tbody tr td {
+    border-color: rgba(0, 0, 0, 0.1);
+    padding: 12px 7px;
+    vertical-align: middle;
+    color: #333333;
+}
