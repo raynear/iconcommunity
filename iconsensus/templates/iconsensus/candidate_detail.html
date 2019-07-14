@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+{% block extra_head %}
+  <link href="{% static 'iconsensus/css/iconsensus.css' %}" rel="stylesheet"/>
+{% endblock %}
+{% block title %}Candidate Detail{% endblock %}
+{% block section %}Candidate Detail{% endblock %}
+{% block content %}
+
+  <div class="container">
+
+    <!-- TEAM INFORMATION -->
+    <div class="p-3 cardbg rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">{% trans 'Team Information' %}</h6>
+      <div class="media text-muted pt-3">
+        <div class="row" style="width: 100vw;">
+          <div class="col-12 col-md-2 text-center text-md-left">
+            {% with 'iconsensus/img/'|add:prep.logo as prep_logo %}
+              <img src="{% static prep_logo %}" alt="" class="mr-2 rounded-circle">
+            {% endwith %}
+          </div>
+
+          <div class="col-12 col-md-10">
+            <p class="media-body pb-0 mb-0 mid text-center text-md-left">
+              <strong class="d-block mb-0">{{ prep.name }}</strong>
+              <small>{% trans 'HQ' %}: {{ prep.location }}</small>
+              <br><br>
+            </p>
+            <p class="media-body pb-3 mb-0 mid lh-125 border-bottom border-gray">
+              <span>{{ prep.introduction }}</span>
+            </p>
+
+            <!-- Social -->
+            <small class="d-block text-right mt-3">
+              <div class="social">
+                {% for social in prep.get_social %}
+                  {% if social.social_select == "website" %}
+                    {% if social.link %}
+                      <a href="{{ social.link }}" target="_blank"><i class="fas fa-globe fa-2x"></i></a>
+                    {% endif %}
+                  {% endif %}
+                  {% if social.social_select == "youtube" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "medium" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-medium fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "twitter" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "telegram" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-telegram fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "slack" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-slack fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "reddit" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-reddit fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "facebook" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "linkedin" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                  {% endif %}
+                  {% if social.social_select == "other" %}
+                    <a href="{{ social.link }}" target="_blank"><i class="fas fa-info-circle fa-2x"></i></a>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </small>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- INTRO VIDEO -->
+    {% if prep.self_intro_video %}
+      <div class="my-3 p-3 cardbg rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">{% trans 'Self-Intro Video' %}</h6>
+        <br>
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="{{ prep.self_intro_video }}" allowfullscreen></iframe>
+        </div>
+      </div>
+    {% endif %}
+
+    <!-- PROPOSAL -->
+    <div class="my-3 p-3 cardbg rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">{% trans 'Proposal' %}</h6>
+      <div class="proposal py-3" style="word-wrap: break-word;">
+        {{ prep.proposal_rich|safe }}
+      </div>
+    </div>
+
+    <!-- NETWORK INFORMATION -->
+    <div class="my-3 p-3 cardbg rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">{% trans 'Expected Network Information' %}</h6>
+      <div class="media text-muted pt-3">
+        <p class="media-body pb-3 mb-0 mid lh-125 border-bottom border-gray">
+          {{ prep.server_location }}
+          <small>{{ prep.server_type }}</small>
+          <br><br>
+          <span>{{ prep.server_spec }}</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- TEAM MEMBERS -->
+    <div class="my-3 p-3 cardbg rounded shadow-sm">
+      <h6 class="border-bottom border-gray pb-2 mb-0">{% trans 'Team Members' %}</h6>
+      {% for team in prep.get_team %}
+        <div class="media text-muted pt-3">
+          <div class="row" style="width: 100vw;">
+            <div class="col-12 col-md-2 text-center text-md-left">
+              {% with 'iconsensus/img/'|add:team.avatar as team_avatar %}
+              <img src="{% static team_avatar %}" alt="" class="mr-2 rounded-circle avatar">
+              {% endwith %}
+            </div>
+
+            <div class="col-12 col-md-10">
+              <p class="media-body pb-0 mb-0 mid text-center text-md-left">
+                <strong class="d-block mb-0">{{ team.name }}</strong>
+                <small>{% trans 'Team Member' %}</small>
+                <br><br>
+              </p>
+              <p class="media-body pb-3 mb-0 mid lh-125 border-bottom border-gray">
+                <span>{{ team.background }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="row text-center">
+      <div class="col-md-12">
+        <a href="/iconsensus/candidates/" class="btn btn-primary" style="font-weight:400!important;">{% trans 'Back to Listing' %}</a>
+      </div>
+    </div>
+
+  </div>
+
+{% endblock %}

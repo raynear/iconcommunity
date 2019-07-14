@@ -23,11 +23,20 @@ class CorePrep(models.Model):
         managed = False
         db_table = 'core_prep'
 
+    def get_team(self):
+        return self.team.all()
+
+    def get_social(self):
+        return self.social.all()
+
 
 class CorePrepsocial(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     social_select = models.CharField(max_length=20, blank=True, null=True)
-    prep = models.ForeignKey(CorePrep, models.DO_NOTHING, blank=True, null=True)
+    prep = models.ForeignKey(
+        CorePrep,
+        related_name='social', on_delete=models.SET_NULL,
+        null=True)
     link = models.CharField(max_length=500, blank=True, null=True)
 
     class Meta:
@@ -39,7 +48,10 @@ class CorePrepteam(models.Model):
     id = models.IntegerField(primary_key=True)  # AutoField?
     avatar = models.CharField(max_length=100, blank=True, null=True)
     background = models.CharField(max_length=2000, blank=True, null=True)
-    prep = models.ForeignKey(CorePrep, models.DO_NOTHING, blank=True, null=True)
+    prep = models.ForeignKey(
+        CorePrep,
+        related_name='team', on_delete=models.SET_NULL,
+        null=True)
     name = models.CharField(max_length=100, blank=True, null=True)
 
     class Meta:

@@ -23,10 +23,12 @@
 {% block section %}P-Rep Candidates{% endblock %}
 {% block content %}
 
-  <div class="content">
+  <div class="container">
     <div class="row">
       <div class="col-md-12">
         <div class="card">
+
+          <!-- HEADER -->
           <div class="card-header">
             <div class="tools float-right">
               <div class="dropdown">
@@ -41,21 +43,22 @@
                 </div>
               </div>
             </div>
-            <h4 class="card-title">Pre-Registered P-Rep Candidates</h4>
+            <h4 class="card-title">Pre-Registeration</h4>
           </div>
 
+          <!-- BODY -->
           <div class="card-body">
             <div class="table-responsive">
               <table class="table tablesorter " id="prep-table">
                 <caption>{% trans 'Total of' %} {{ total }} P-Rep {% trans 'Candidates' %}</caption>
                 <thead class="text-primary">
                 <tr>
-                  <th class="logohead"></th>
-                  <th>CREATED</th>
-                  <th>NAME</th>
-                  <th>HQ</th>
-                  <th>SERVER LOCATION</th>
-                  <th></th>
+                  <th class="logohead" width="10%"></th>
+                  <th width="14%">CREATED</th>
+                  <th width="14%">NAME</th>
+                  <th width="14%">HQ</th>
+                  <th width="14%">SERVER LOCATION</th>
+                  <th width="10%"></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,7 +76,9 @@
                     <td>{{ prep.name }}</td>
                     <td>{{ prep.location }}</td>
                     <td>{{ prep.server_location }}</td>
-                    <td>Detail</td>
+                    <td>
+                      <a href="{% url 'candidate_detail' prep.id %}" class="btn btn-primary" style="font-weight: 400!important;">{% trans 'Detail' %} <i class="fas fa-angle-right"></i></a>
+                    </td>
                   </tr>
                 {% endfor %}
 

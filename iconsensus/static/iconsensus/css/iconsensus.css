@@ -2,6 +2,7 @@
 h1 {
     font-family: 'Montserrat';
     font-weight: 700;
+    margin-top: 30px;
 }
 
 .white-content .lead {
@@ -22,11 +23,13 @@ h1 {
 
 /* Night Mode */
 .white-content h6 {
-    color: #333333!important;
+    color: #1D253B;
+    font-weight: bold;
 }
 
 h6 {
-    color: rgba(255,255,255,0.7)!important;
+    color: rgba(255,255,255,0.8);
+    font-weight: bold;
 }
 
 /* Candidate Listing */
@@ -39,4 +42,71 @@ h6 {
     padding: 12px 7px;
     vertical-align: middle;
     color: #333333;
+}
+
+.white-content caption {
+  padding-top: 2rem;
+  color: #6c757d;
+  text-align: left;
+  caption-side: bottom;
+}
+
+caption {
+  padding-top: 2rem;
+  color: rgba(255,255,255,0.7);
+  text-align: left;
+  caption-side: bottom;
+}
+
+.white-content .table-responsive table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.table-responsive table tbody tr:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Candidate Detail */
+
+.white-content .cardbg {
+    background-color: #ffffff!important;
+}
+
+.cardbg {
+    background-color: rgba(255,255,255,0.1);
+}
+
+.white-content .social [class*="fab fa-"] {
+  margin-left: 5px;
+  color: #1D253B;
+}
+
+.social [class*="fab fa-"] {
+  margin-left: 5px;
+  color: rgba(255,255,255,0.7);
+}
+
+.social [class*="fab fa-"]:hover {
+  color: #1aaaba;
+}
+
+.white-content .social [class*="fas fa-"] {
+  margin-left: 5px;
+  color: #1D253B;
+}
+
+.social [class*="fas fa-"] {
+  margin-left: 5px;
+  color: rgba(255,255,255,0.7);
+}
+
+.social [class*="fas fa-"]:hover {
+  color: #1aaaba;
+}
+
+.avatar {
+    object-fit: contain;
+    width: 125px;
+    height: 125px;
+    display: inline-block;
 }

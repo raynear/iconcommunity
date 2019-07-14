@@ -38,6 +38,9 @@
     .vcommunityimg { content: url({% static 'iconsensus/img/vcommunityinvert.png' %}); }
     .vicongressimg { content: url({% static 'iconsensus/img/vicongressinvert.png' %}); }
 
+    .white-content .tmaimg {content: url({% static "iconsensus/img/graph2_190321.png" %}); max-width:100%;}
+    .tmaimg {content: url({% static "iconsensus/img/graph2_190321invert.png" %}); max-width:100%;}
+
 
   </style>
 {% endblock %}
@@ -62,25 +65,25 @@
           <div class="col-lg-3 text-center">
             <div class="bpimg mx-auto d-block" style="width:140px; height:140px;"></div>
             <br>
-            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Block Production and Verification' %}</h6>
+            <h6 class="mt-2">{% trans 'Block Production and Verification' %}</h6>
             <br>
           </div>
           <div class="col-lg-3 text-center">
             <div class="governanceimg mx-auto d-block" style="width:140px; height:140px;"></div>
             <br>
-            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Governance and monetary policy decision making' %}</h6>
+            <h6 class="mt-2">{% trans 'Governance and monetary policy decision making' %}</h6>
             <br>
           </div>
           <div class="col-lg-3 text-center">
             <div class="contribimg mx-auto d-block" style="width:140px; height:140px;"></div>
             <br>
-            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'On-chain, Off-chain contributions' %}</h6>
+            <h6 class="mt-2">{% trans 'On-chain, Off-chain contributions' %}</h6>
             <br>
           </div>
           <div class="col-lg-3 text-center">
             <div class="securityimg mx-auto d-block" style="width:140px; height:140px;"></div>
             <br>
-            <h6 class="mt-2" style="font-weight:bold; color: #000;">{% trans 'Network Security' %}</h6><br>
+            <h6 class="mt-2">{% trans 'Network Security' %}</h6><br>
           </div>
         </div>
 
@@ -163,11 +166,13 @@
         <h1 class="text-center" style="line-height:42px;">{% trans '“ICONSENSUS, the Journey<br> Toward Mass Adoption”' %}</h1>
         <div class="offset-md-2 col-md-8">
           <p class="lead notofont"> {% trans 'The ICON Network is now standing at a pivotal moment to evolve to a truly decentralized network and realizing mass adoption. This begins with ICONSENSUS, a journey consisted of a series of election milestones of P-Rep, C-Rep, DBP, and EEP.' %}</p>
+          <br>
           <p class="lead notofont text-center">
-            <b>{% trans 'Become a genesis Public Representative, and make a new history with us.' %}</b></p>
+            <b>{% trans 'Become a genesis Public Representative, and make a new history with us.' %}</b>
+          </p>
         </div>
         <br><br>
-        <img src="{% static "iconsensus/img/graph2_190321.png" %}" class="rounded mx-auto d-block">
+        <div class="tmaimg rounded mx-auto d-block"></div>
         <br>
       </div>
     </section>

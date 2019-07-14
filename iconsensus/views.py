@@ -36,3 +36,17 @@ def candidates(request):
     }
 
     return render(request, 'iconsensus/candidates.html', context)
+
+
+def candidate_detail(request, pk):
+    prep = CorePrep.objects.using('prepsqlite3').get(pk=pk)
+
+    context = {
+        'nightmode': request.session['nightmode'],
+        'navbar': request.session['navbar'],
+        'section': 'ICONSENSUS',
+        'subsection': 'CANDIDATES',
+        'prep': prep,
+    }
+
+    return render(request, 'iconsensus/candidate_detail.html', context)
