@@ -18,17 +18,29 @@
     }
   </style>
 
+  <script> var locations = {{ prep_locations|safe }}; </script>
+
+
+
 {% endblock %}
 {% block title %}P-Rep Candidates{% endblock %}
 {% block section %}P-Rep Candidates{% endblock %}
 {% block content %}
 
   <div class="container">
+
+    <div id="gmap"></div>
+
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+    <script src="{% static 'js/core/jquery.min.js' %}"></script>
+    <script src="{% static 'iconsensus/js/map.js' %}"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8QmgeeNNnaMvqqMOavForCRI7kqGpd9E&callback=initMap&language=en&region=US"></script>
+
     <div class="row">
       <div class="col-md-12">
         <div class="card">
 
-          <!-- HEADER -->
+          <!-- HEADER
           <div class="card-header">
             <div class="tools float-right">
               <div class="dropdown">
@@ -45,6 +57,7 @@
             </div>
             <h4 class="card-title">Pre-Registeration</h4>
           </div>
+          -->
 
           <!-- BODY -->
           <div class="card-body">
@@ -97,6 +110,28 @@
   <script src="{% static 'js/plugins/jquery.tablesorter.js' %}"></script>
   <script>
     $(document).ready(function() {
+
+      $.tablesorter.addParser({
+          id: "date-range",
+          is: function(){
+              return false;
+          },
+          format: function(s, table, cell) {
+              var dates = s.replace(/(\d{1,2})[\/\s](\d{1,2})[\/\s](\d{4})/g, "$2/$1/$3").split(' - '),
+                  parsed = [];
+              if (dates.length) {
+                  $.each(dates, function(i,d){
+                      var v = new Date(d);
+                      parsed.push($.type(v) === 'date' ? v.getTime() : d);
+                  });
+              }
+              return parsed.length ? parsed.join('') : s;
+          },
+          parsed : true,
+          type: "text"
+      });
+
+
       $("#prep-table").tablesorter({
         headers: {
             0 : {
@@ -107,6 +142,9 @@
             }
         }
       });
+
+
+
     });
   </script>
 {% endblock %}

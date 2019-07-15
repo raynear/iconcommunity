@@ -66,6 +66,44 @@ caption {
   background: rgba(255,255,255,0.1);
 }
 
+#gmap {
+  height: 500px;
+  margin-bottom: 25px;
+  border-radius: .25rem;
+}
+.customMarker {
+  position: absolute;
+  cursor: pointer;
+  background: #ffffff;
+  width: 70px;
+  height: 70px;
+  /* -width/2 */
+  margin-left: -50px;
+  /* -height + arrow */
+  margin-top: -110px;
+  border-radius: 50%;
+  padding: 0px;
+}
+
+.customMarker:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 25px;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #ffffff transparent;
+  display: block;
+  width: 0;
+}
+
+.customMarker img {
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 50%;
+}
+
 /* Candidate Detail */
 
 .white-content .cardbg {
