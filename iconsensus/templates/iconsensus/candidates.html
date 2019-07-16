@@ -110,7 +110,6 @@
   <script src="{% static 'js/plugins/jquery.tablesorter.js' %}"></script>
   <script>
     $(document).ready(function() {
-
       $.tablesorter.addParser({
           id: "date-range",
           is: function(){
@@ -130,21 +129,19 @@
           parsed : true,
           type: "text"
       });
-
-
       $("#prep-table").tablesorter({
         headers: {
             0 : {
                 sorter: false
+            },
+            1 : {
+                sorter: 'date-range'
             },
             5 : {
                 sorter: false
             }
         }
       });
-
-
-
     });
   </script>
 {% endblock %}
