@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load humanize %}
 {% block extra_head %}
   <link href="{% static 'dashboard/css/dashboard.css' %}" rel="stylesheet"/>
 {% endblock %}
@@ -470,7 +471,6 @@
     </div>
   </div>
 
-
   <!-- ICX Market Chart -->
   <div class="row">
     <div class="col-12">
@@ -526,10 +526,10 @@
               <tr>
                 <th class="text-center">#</th>
                 <th>Token</th>
-                <th>Price</th>
-                <th>% Change</th>
+                <th>Price (ICX)</th>
+                <th>% Change (24h)</th>
                 <th>Volume (24h)</th>
-                <th>Market Cap</th>
+                <th>Market Cap (ICX)</th>
               </tr>
               </thead>
               <tbody>
@@ -540,13 +540,15 @@
                     <img src="{% static 'dashboard/img/ac3.jpg' %}" alt="photo">
                   </div>
                 </td>
-                <td>AC3 (AC3)<p></p></td>
-                <td><p>-<em>USD</em></p><p>-<em>ICX</em></p><p>-<em>BTC</em></p><p>-<em>ETH</em></p></td>
-                <td>+5%</td>
-                <td>500,000 USD</td>
-                <td>18,000,000 USD</td>
+                <td>AC3 (AC3)</td>
+                <td>{{ ac3data.quote.ICX.price|floatformat:"5" }} ICX</td>
+                <td id="ac3_change"><span class="rekt">{{ ac3data.quote.ICX.percent_change_24h }}</span></td>
+                <td id="ac3_volume">{{ ac3data.quote.ICX.volume_24h|floatformat:0 }}</td>
+                <td id="ac3_market_cap">{{ ac3data.quote.ICX.market_cap|floatformat:0 }} </td>
               </tr>
 
+              <!--Not listed-->
+              <!--
               <tr>
                 <td class="text-center">
                   <div class="photo">
@@ -585,6 +587,7 @@
                 <td>500,000 USD</td>
                 <td>18,000,000 USD</td>
               </tr>
+              -->
 
               </tbody>
             </table>
@@ -609,14 +612,19 @@
     $(document).ready(function() {
         demo.initDashboardPageCharts();
         demo.initVectorMap();
+        var ac3_market_cap = parseFloat($('#ac3_market_cap').text()).toLocaleString();
+        var ac3_volume = parseFloat($('#ac3_volume').text()).toLocaleString();
+        var ac3_change = parseFloat($('#ac3_change > span').text());
 
-        /*
-        $('.nav > li').each(function() {
-          if($(this).find('p').text() == document.title)
-            $(this).addClass('active');
-        });
-        */
+        if (ac3_change > 0) {
+            $('#ac3_change > span').addClass('moon');
+        } else {
+            $('#ac3_change > span').addClass('rekt');
+        }
 
+        $('#ac3_market_cap').text(ac3_market_cap+" ICX");
+        $('#ac3_volume').text(ac3_volume+" ICX");
+        $('#ac3_change > span').text(ac3_change+" %");
     });
   </script>
 

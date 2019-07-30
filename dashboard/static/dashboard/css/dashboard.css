@@ -51,10 +51,12 @@ p {
     margin-inline-end: 0px;
 }
 
+/*
 .table-typeI td:nth-child(3) {
     font-size: 10px;
     text-align: right;
 }
+*/
 
 [class*=table-type] td {
     border-bottom: 1px solid #e6e6e6;
@@ -111,4 +113,14 @@ li{ list-style:none; }
     .card-body .subTitle{font-size: 20px; font-weight: 800;}
     .card-body .content li p:last-child{font-size: 26px; font-weight: 700;}
     .card-body .content li p:last-child em{font-size: 20px; margin-right: 13px; font-weight: 500;}
+}
+
+.rekt {
+    font-weight: bold;
+    color: red!important;
+}
+
+.moon {
+    font-weight: bold;
+    color: darkgreen!important;
 }
