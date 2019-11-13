@@ -109,10 +109,10 @@
   $(document).ready(function () {
     $("#status").append("Status: " + getProposalStatus(parseInt({{aProposal.status}})));
     $("#type").append("Type: " + getProposalType(parseInt({{aProposal.contents.type}})));
-    var StartDate = new Date({{start}});
+    var StartDate = new Date({{start}}/1000);
     $("#start").append("Created: " + StartDate);
 
-    var EndDate = new Date({{end}});
+    var EndDate = new Date({{end}}/1000);
     if (StartDate > EndDate) {
       $("#end").append("Expires: block height " + {{end}});
     } else {
@@ -388,14 +388,14 @@
 
     $('.votedToken').each(function(index, item){
       if(item.innerHTML !== "") {
-        item.innerHTML = numeral(parseInt(item.innerHTML)).format('0,00');
+        item.innerHTML = numeral(parseInt(item.innerHTML)/10**18).format('0,00');
       } else {
         item.innerHTML = 0;
       }
     });
 
     $('.timestamp').each(function(index, item){
-      aDate = new Date(parseInt(item.innerHTML));
+      aDate = new Date(parseInt(item.innerHTML)/1000);
       item.innerHTML = aDate;
     });
 
