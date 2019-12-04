@@ -120,7 +120,10 @@
     }
 
     let aJson = $("#contentsValue")[0].innerHTML;
-    let value_json = JSON.parse(aJson.replace(/'/gi, "\""));
+    let Escape = $('<div />').html(aJson).text();
+    let FixQuote = Escape.split('\"').join('\\\"');
+    let Single2Double = FixQuote.split("'").join("\"");
+    let value_json = JSON.parse(Single2Double);
     let replace_str = "";
     for (var key in value_json) {
       if (value_json.hasOwnProperty(key)) {
@@ -131,8 +134,8 @@
     $("#contentsValue")[0].innerHTML = replace_str;
 
     proposal_vote_json_str = "{{aProposal.vote}}";
-    proposal_vote_json_str = proposal_vote_json_str.replace(/&#39;/gi, "\"");
-    Voter = JSON.parse(proposal_vote_json_str);
+    let escape = $('<div />').html(proposal_vote_json_str).text();
+    Voter = JSON.parse(escape.split("'").join("\""));
 
     Voter = {
       agree: Voter.agree.list.length,
@@ -428,7 +431,7 @@
 <HR />
 <div>
   <H5><b>Description</b></H5>
-  <H4>{{aProposal.contents.description}}</H4>
+  <H4 id="contentsDescription">{{aProposal.contents.description}}</H4>
 </div>
 <HR />
 <div>
